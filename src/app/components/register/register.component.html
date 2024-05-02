@@ -1,0 +1,98 @@
+<form [formGroup]="registerForm" (ngSubmit)="submitDetails()">
+  <p-card header="Register" [style]="{ width: '360px' }">
+    <div class="field">
+      <label for="phone">Phone</label>
+      <input
+        type="text"
+        pInputText
+        formControlName="phone"
+        class="w-full"
+        name="phone"
+        placeholder="Type your phone number"
+      />
+      <small
+        *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+        class="block p-error"
+      >
+        <div *ngIf="phone.errors?.['required']">Phone is required.</div>
+      </small>
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input
+        type="text"
+        pInputText
+        formControlName="email"
+        class="w-full"
+        name="email"
+        placeholder="Type your email"
+      />
+      <small
+        *ngIf="email.invalid && (email.dirty || email.touched)"
+        class="block p-error"
+      >
+        <div *ngIf="email.errors?.['required']">Email is required.</div>
+        <div *ngIf="email.errors?.['email']">Email should be valid</div>
+      </small>
+    </div>
+    <div class="field">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        pInputText
+        formControlName="username"
+        class="w-full"
+        name="username"
+        placeholder="Type your username"
+      />
+      <small
+        *ngIf="username.invalid && (username.dirty || username.touched)"
+        class="block p-error"
+      >
+        <div *ngIf="username.errors?.['required']">Username is required.</div>
+      </small>
+    </div>
+    <div class="field">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        pInputText
+        formControlName="password"
+        class="w-full"
+        name="password"
+        placeholder="Type your password"
+      />
+      <small
+        *ngIf="password.invalid && (password.dirty || password.touched)"
+        class="block p-error"
+      >
+        <div *ngIf="password.errors?.['required']">Password is required.</div>
+      </small>
+    </div>
+   
+    <div class="field">
+      <label for="specialty">Specialty</label>
+      <input
+        type="text"
+        pInputText
+        formControlName="specialty"
+        class="w-full"
+        name="specialty"
+        placeholder="Type your specialty"
+      />
+      <small
+        *ngIf="specialty.invalid && (specialty.dirty || specialty.touched)"
+        class="block p-error"
+      >
+        <div *ngIf="specialty.errors?.['required']">Specialty is required.</div>
+      </small>
+    </div>
+    <p-button
+      label="Register"
+      styleClass="w-full"
+      [disabled]="registerForm.invalid"
+      type="submit"
+    ></p-button>
+    <div class="mt-2">Already a member? <a routerLink="/login">Login</a></div>
+  </p-card>
+</form>
