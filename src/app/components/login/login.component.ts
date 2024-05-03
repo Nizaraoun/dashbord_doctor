@@ -30,18 +30,26 @@ export class LoginComponent {
   get password() { return this.loginForm.controls['password']; }
 
   loginUser() {
-    console.log(this.loginForm.value);
-
     const postData = { ...this.loginForm.value };
     const { email, password } = this.loginForm.value;
-
+  
     this.authService.getUserByEmail(postData as User).subscribe(
-      response => {
-        if (response!=null) {
-          console.log(response );
-          // sessionStorage.setItem('email'response.email);
+      (response: any) => { // Assuming 'response' is of type any
+        if (response != null) {
+          console.log(response);
+  
+          // Assuming 'accessToken' is the property name for your access token in the response
+          const accessToken = response.accessToken;
+  
+          // Save the data in local storage
+          localStorage.setItem('accessToken', accessToken);
+          localStorage.setItem('email', response.username);
+          localStorage.setItem('username', response.email);
+          localStorage.setItem('specialty', response.specialty);
+          localStorage.setItem('phone', response.phone);
+          localStorage.setItem('id', response.id);
 
-
+          
         } else {
           this.msgService.add({ severity: 'error', summary: 'Error', detail: 'email or password is wrong' });
         }
@@ -49,7 +57,9 @@ export class LoginComponent {
       error => {
         this.msgService.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
       }
+    );
+  
 
-    )
+    
   }
 }
