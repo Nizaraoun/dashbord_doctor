@@ -4,4 +4,10 @@
 @tailwind utilities;
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+@import 'bootstrap/scss/bootstrap.scss';
 
+body {
+    margin: 0;
+    width: 100%;
+  }
+  

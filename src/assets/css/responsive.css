@@ -1,9 +1,4 @@
-/*
-Template: XRay - Responsive Bootstrap 5 Admin Dashboard Template
-Author: iqonicthemes.in
-Design and Developed by: iqonicthemes.in
-NOTE: This file contains the styling for responsive Template.
-*/
+ 
 @media(max-width:1699px) {
 	.email-form .select2-container { width: 100% !important; }
 	.sign-in-page {height: 100%;}

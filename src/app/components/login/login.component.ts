@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { C } from '@fullcalendar/core/internal-common';
 import { MessageService } from 'primeng/api';
 import { User } from 'src/app/interfaces/auth';
 import { register } from 'src/app/interfaces/register';
@@ -36,18 +37,29 @@ export class LoginComponent {
     this.authService.getUserByEmail(postData as User).subscribe(
       (response: any) => { // Assuming 'response' is of type any
         if (response != null) {
-          console.log(response);
   
           // Assuming 'accessToken' is the property name for your access token in the response
           const accessToken = response.accessToken;
-  
+          const email = response.doctor.username;
+          const username = response.doctor.email;
+          const speciality = response.doctor.speciality;
+          const phone = response.doctor.phone;
+          const id = response.doctor.id;
+          const role = response.doctor.role;
+          const image = response.doctor.image;
+          const rating = response.doctor.rating;
           // Save the data in local storage
           localStorage.setItem('accessToken', accessToken);
-          localStorage.setItem('email', response.username);
-          localStorage.setItem('username', response.email);
-          localStorage.setItem('specialty', response.specialty);
-          localStorage.setItem('phone', response.phone);
-          localStorage.setItem('id', response.id);
+          localStorage.setItem('email', email);
+          localStorage.setItem('username', username);
+          localStorage.setItem('speciality', speciality);
+          localStorage.setItem('phone', phone);
+          localStorage.setItem('id', id);
+          localStorage.setItem('role', role);
+          localStorage.setItem('rating',rating) 
+          localStorage.setItem('image',image)
+          this.router.navigate(['/dashboard/home']);
+        
 
           
         } else {

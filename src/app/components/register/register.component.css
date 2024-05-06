@@ -1,6 +1,13 @@
-/* .register-form {
-    background-image: url('path/to/doctor.png');
-    background-size: cover;
-    background-position: center;
-    padding: 20px; 
-  } */
+.body{
+  width: 100%;
+  background-color: rgb(244, 237, 237);
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

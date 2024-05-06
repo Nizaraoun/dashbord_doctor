@@ -36,11 +36,11 @@ export class RegisterComponent {
   }
   
   get email() {
-    return this.registerForm.controls['email'];
+    return this.registerForm.controls['username'];
   }
   
   get username() {
-    return this.registerForm.controls['username'];
+    return this.registerForm.controls['email'];
   }
   
   get password() {

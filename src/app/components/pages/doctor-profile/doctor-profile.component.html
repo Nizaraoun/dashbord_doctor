@@ -4,10 +4,11 @@
       <div class="panel">
           <div class="user-heading round">
               <a href="#">
-                  <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+                  <img [src]="decodedImage" alt="Decoded Image">
+
               </a>
-              <h1>Houda Habib</h1>
-              <p>drhoudagmail.com</p>
+              <h1>{{Username}}</h1>
+              <p>{{email}}</p>
           </div>
 
           <ul class="nav nav-pills nav-stacked">
@@ -24,53 +25,37 @@
           </form>
           <footer class="panel-footer">
               <button class="btn btn-warning pull-right">Post</button>
-              <ul class="nav nav-pills">
-                  <li>
-                      <a href="#"><i class="fa fa-map-marker"></i></a>
-                  </li>
-                  <li>
-                      <a href="#"><i class="fa fa-camera"></i></a>
-                  </li>
-                  <li>
-                      <a href="#"><i class=" fa fa-film"></i></a>
-                  </li>
-                  <li>
-                      <a href="#"><i class="fa fa-microphone"></i></a>
-                  </li>
-              </ul>
           </footer>
       </div>
       <div class="panel">
           <div class="bio-graph-heading">
-            Docteur Houda Habib, Medecin chirurgien cardio-vasculaire et thoracique
+                Hello I am {{Username}} ,
           </div>
           <div class="panel-body bio-graph-info">
               <h1>Bio Graph</h1>
               <div class="row">
                   <div class="bio-row">
-                      <p><span>First Name </span>: Houda </p>
+                      <p><span>Your Name </span>: {{Username}} </p>
                   </div>
-                  <div class="bio-row">
-                      <p><span>Last Name </span>: Habib</p>
-                  </div>
+               
                   <div class="bio-row">
                       <p><span>Country </span>: Tunisia</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Birthday</span>: 13 July 1983</p>
+                      <p><span>Birthday</span>: {{Birthday}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Occupation </span>: Cardiologue chirurgien </p>
+                      <p><span>Occupation </span>: {{speciality}} </p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Email </span>: drhouda.gmail.com</p>
+                      <p><span>Email </span>: {{email}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Mobile </span>: +21656874002</p>
+                      <p><span>Mobile </span>: {{phone}}</p>
                   </div>
-                  <div class="bio-row">
+                  <!-- <div class="bio-row">
                       <p><span>Phone </span>: +21675998002</p>
-                  </div>
+                  </div> -->
               </div>
           </div>
       </div>

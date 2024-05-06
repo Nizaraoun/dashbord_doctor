@@ -1,4 +1,3 @@
-<!-- TOP Nav Bar -->
 <div class="iq-top-navbar header-top-sticky">
     <div class="iq-navbar-custom">
         <div class="iq-sidebar-logo">
@@ -48,16 +47,7 @@
 
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a routerLink="javascript:void(0);" class="rtl-switch-toogle">
-                            <span class="form-check form-switch">
-                                <input class="form-check-input rtl-switch" type="checkbox" role="switch"
-                                    id="rtl-switch">
-                                <span class="rtl-toggle-tooltip ltr-tooltip">Ltr</span>
-                                <span class="rtl-toggle-tooltip rtl-tooltip">Rtl</span>
-                            </span>
-                        </a>
-                    </li>
+                   
                     <li class="nav-item iq-full-screen">
                         <a routerLink="#" class="iq-waves-effect" id="btnFullscreen"><i
                                 class="ri-fullscreen-line"></i></a>
@@ -84,7 +74,7 @@
                                             </div>
                                             <div class="media-body ms-3">
                                                 <!-- Doctor name  -->
-                                                <h6 class="mb-0 ">{{Username}}</h6>
+                                                <h6 class="mb-0 ">{{username}}</h6>
                                                 <small class="float-end font-size-12">Just Now</small>
                                                 <p class="mb-0">95 MB</p>
                                             </div>
@@ -215,9 +205,10 @@
             <ul class="navbar-list">
                 <li>
                     <a routerLink="#" class="search-toggle iq-waves-effect d-flex align-items-center">
-                        <img src="assets/images/user/1.jpg" class="img-fluid rounded" alt="user">
+                        <img [src]="decodedImage" alt="user" >
+
                         <div class="caption">
-                            <h6 class="mb-0 line-height">{{Username}}</h6>
+                            <h6 class="mb-0 line-height ">{{username}}</h6>
                             <span class="font-size-12">Available</span>
                         </div>
                     </a>
@@ -228,18 +219,18 @@
                                     <h5 class="mb-0 text-white line-height">Hello Dr Habib</h5>
                                     <span class="text-white font-size-12">Available</span>
                                 </div>
-                                <a routerLink="profile.html" class="iq-sub-card iq-bg-primary-hover">
+                                <a routerLink="/MyProfile" class="iq-sub-card iq-bg-primary-hover">
                                     <div class="media align-items-center d-flex">
                                         <div class="rounded iq-card-icon iq-bg-primary">
                                             <i class="ri-file-user-line"></i>
                                         </div>
-                                        <div class="media-body ms-3">
+                                        <div  class="media-body ms-3">
                                             <h6 class="mb-0 ">My Profile</h6>
-                                            <p class="mb-0 font-size-12">View personal profile details.</p>
+                                            <p   class="mb-0 font-size-12">View personal profile details.</p>
                                         </div>
                                     </div>
                                 </a>
-                                <a routerLink="profile-edit.html" class="iq-sub-card iq-bg-primary-hover">
+                                <a routerLink="/profile-edit" class="iq-sub-card iq-bg-primary-hover">
                                     <div class="media align-items-center d-flex">
                                         <div class="rounded iq-card-icon iq-bg-primary">
                                             <i class="ri-profile-line"></i>
@@ -273,9 +264,9 @@
                                     </div>
                                 </a>
                                 <div class="d-inline-block w-100 text-center p-3">
-                                    <a class="bg-primary iq-sign-btn" routerLink="sign-in.html" role="button">Sign
-                                        out<i class="ri-login-box-line ms-2"></i></a>
+                                    <a (click)="logout()" class="bg-primary iq-sign-btn" role="button">Sign out<i class="ri-login-box-line ms-2"></i></a>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>

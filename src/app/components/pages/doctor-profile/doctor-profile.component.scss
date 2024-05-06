@@ -9,9 +9,15 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
 }
+.nav-pills {
+         margin-bottom: 0;
+    margin-left: 30px;
+    padding-left: 10px;
 
+}
 .profile-nav, .profile-info{
-    margin-top:30px;   
+    margin-top:30px;
+
 }
 
 .profile-nav .user-heading {
@@ -34,6 +40,7 @@ body {
     width: 112px;
     height: 112px;
     border-radius: 50%;
+    
     -webkit-border-radius: 50%;
 }
 
@@ -73,6 +80,7 @@ body {
     border-left: 5px solid #089bab;
     color: #89817f !important;
     margin-right: 10px;
+    
     padding-right: 5px;
 }
 

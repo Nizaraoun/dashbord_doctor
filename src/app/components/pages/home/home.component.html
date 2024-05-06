@@ -16,6 +16,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="row">
+                        <!-- 1 -->
                         <div class="col-md-6 col-lg-3">
                             <div class="iq-card">
                                 <div class="iq-card-body">
@@ -28,6 +29,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- 2 -->
                         <div class="col-md-6 col-lg-3">
                             <div class="iq-card iq-card-block iq-card-height">
                                 <div class="iq-card-body">
@@ -40,11 +42,29 @@
                                 </div>
                             </div>
                         </div>
-                        
+                        <!-- 3 -->
                         <div class="col-md-6 col-lg-3">
                             <div class="iq-card iq-card-block iq-card-height">
-                                <div class="iq-card-body P-0 rounded"
-                                    style="background: url(assets/images/page-img/38.jpg) no-repeat scroll center center; background-size: contain; min-height: 146px;">
+                                <div class="iq-card-body">
+                                    <div class="iq-progress-bar progress-bar-vertical iq-bg-primary">
+                                        <span class="bg-primary" data-percent="50"></span>
+                                    </div>
+                                    <span class="line-height-4">Number of Messages </span>
+                                    <h4 class="mb-2 mt-2">02</h4>
+                                    <p class="mb-0 text-secondary line-height">Messages</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3">
+                            <div class="iq-card iq-card-block iq-card-height">
+                                <div class="iq-card-body">
+                                    <div class="iq-progress-bar progress-bar-vertical iq-bg-danger">
+                                        <span class="bg-danger" data-percent="50"></span>
+                                    </div>
+                                    <span class="line-height-4">Number of followers</span>
+                                    <h4 class="mb-2 mt-2">02</h4>
+                                    <p class="mb-0 text-secondary line-height">followers</p>
                                 </div>
                             </div>
                         </div>
@@ -58,7 +78,7 @@
                                     <img src="assets/images/user/11.png" alt="profile-img" class="avatar-130 img-fluid">
                                 </div>
                                 <div class="text-center mt-3">
-                                    <h4><b>Dr Houda Habib</b></h4>
+                                    <h4><b>{{Username}}</b></h4>
                                     <p>Doctor</p>
                                     <p>Docteur Houda Habib, Medecin chirurgien cardio-vasculaire et thoracique
                                     </p>
@@ -71,7 +91,7 @@
                                         <span>Operations prochaines</span>
                                     </li>
                                     <li class="text-center">
-                                        <h3 class="counter">3.9</h3>
+                                        <h3 class="counter">{{Rating}}</h3>
                                         <span>Medical Rating</span>
                                     </li>
                                 </ul>
@@ -96,6 +116,7 @@
                 </div>
             </div>
             <div class="row">
+
                 
                 <div class="col-lg-4">
                     <div class="iq-card">
@@ -107,15 +128,7 @@
                             <div id="wave-chart-7"></div>
                         </div>
                     </div>
-                    <div class="iq-card">
-                        <div class="iq-card-body">
-                            <h6>NEW PATIENTS</h6>
-                            <h3><b>04</b></h3>
-                        </div>
-                        <div class="wave-chart-container" style="height: 80px;">
-                            <div id="wave-chart-8"></div>
-                        </div>
-                    </div>
+               
                 </div>
                 
             </div>
@@ -193,60 +206,14 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-lg-3">
-                    <div class="iq-card">
-                        <div class="iq-card-header d-flex justify-content-between">
-                            <div class="iq-header-title">
-                                <h4 class="card-title">Visite par Regions </h4>
-                            </div>
-                        </div>
-                        <div class="iq-card-body">
-                            <div class="iq-details">
-                                <span class="title text-dark">Tunis</span>
-                                <div class="percentage float-end text-primary">95 <span>%</span></div>
-                                <div class="iq-progress-bar-linear d-inline-block w-100">
-                                    <div class="iq-progress-bar">
-                                        <span class="bg-primary" data-percent="95"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="iq-details mt-4">
-                                <span class="title text-dark">Nabeul</span>
-                                <div class="percentage float-end text-warning">75 <span>%</span></div>
-                                <div class="iq-progress-bar-linear d-inline-block w-100">
-                                    <div class="iq-progress-bar">
-                                        <span class="bg-warning" data-percent="75"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="iq-details mt-4">
-                                <span class="title text-dark">Kef</span>
-                                <div class="percentage float-end text-success">55 <span>%</span></div>
-                                <div class="iq-progress-bar-linear d-inline-block w-100">
-                                    <div class="iq-progress-bar">
-                                        <span class="bg-success" data-percent="55"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="iq-details mt-4">
-                                <span class="title text-dark">Bizerte</span>
-                                <div class="percentage float-end text-danger">25 <span>%</span></div>
-                                <div class="iq-progress-bar-linear d-inline-block w-100">
-                                    <div class="iq-progress-bar">
-                                        <span class="bg-danger" data-percent="25"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+               
             </div>
             <div class="row">
                 <div class="col-lg-8">
                     <div class="iq-card">
                         <div class="iq-card-header d-flex justify-content-between">
                             <div class="iq-header-title">
-                                <h4 class="card-title">New Appointments </h4>
+                                <h4 class="card-title">All Appointments </h4>
                             </div>
                             <div class="iq-card-header-toolbar d-flex align-items-center">
                                 <div class="dropdown">
@@ -274,66 +241,22 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">Patient</th>
-                                            <th scope="col">Doctor</th>
                                             <th scope="col">Date</th>
                                             <th scope="col">Timing</th>
                                             <th scope="col">Contact</th>
-
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Petey Cruiser</td>
-                                            <td>Dr.Monty Carlo</td>
-                                            <td>20/02/2020</td>
-                                            <td>8:00 AM</td>
-                                            <td>+1-202-555-0146</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Anna Sthesia</td>
-                                            <td>Dr.Pete Sariya</td>
-                                            <td>25/02/2020</td>
-                                            <td>8:30 AM</td>
-                                            <td>+1-202-555-0164</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Paul Molive</td>
-                                            <td>Dr.Brock Lee</td>
-                                            <td>25/02/2020</td>
-                                            <td>9:45 AM</td>
-                                            <td>+1-202-555-0153</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Anna Mull</td>
-                                            <td>Dr.Barb Ackue</td>
-                                            <td>27/02/2020</td>
-                                            <td>11:30 AM</td>
-                                            <td>+1-202-555-0154</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Paige Turner</td>
-                                            <td>Dr.Walter Melon</td>
-                                            <td>28/02/2020</td>
-                                            <td>3:30 PM</td>
-                                            <td>+1-202-555-0101</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Don Stairs</td>
-                                            <td>Dr.Arty Ficial</td>
-                                            <td>28/02/2020</td>
-                                            <td>4:30 PM</td>
-                                            <td>+1-202-555-0176</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Pat Agonia</td>
-                                            <td>Dr.Barb Ackue</td>
-                                            <td>29/02/2020</td>
-                                            <td>5:00 PM</td>
-                                            <td>+1-202-555-0194</td>
+                                        <tr *ngFor="let appointment of appointments">
+                                            <td>{{ appointment.patientname }}</td>
+                                            <td>{{ appointment.jour }}</td>
+                                            <td>{{ appointment.heure }}</td>
+                                            <td>{{ appointment.patientphone }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
+                            
                         </div>
                     </div>
                 </div>

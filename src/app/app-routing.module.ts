@@ -5,11 +5,11 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { AuthGuard } from './guards/auth.guard';
-import CalendarComponent from '@fullcalendar/core/CalendarComponent';
 import { ChatComponent } from './components/pages/chat/chat.component';
 import { DoctorProfileComponent } from './components/pages/doctor-profile/doctor-profile.component';
 import { EditPatientProfilComponent } from './components/pages/edit-patient-profil/edit-patient-profil.component';
 import { PatientProfileComponent } from './components/pages/patient-profile/patient-profile.component';
+import { CalendarComponent } from './components/pages/calendar/calendar.component';
 
 const routes: Routes = [
   {
@@ -40,10 +40,10 @@ const routes: Routes = [
     path: "chat",
     component: ChatComponent,
   },
-  // {
-  //   path: "calendar",
-  //   component: CalendarComponent,
-  // },
+  {
+    path: "calendar",
+    component: CalendarComponent,
+  },
   {
     path: "MyProfile",
     component: DoctorProfileComponent,
@@ -56,6 +56,7 @@ const routes: Routes = [
     path: "editpatientprofile",
     component: EditPatientProfilComponent,
   },
+
 
   {
     path: '', 
