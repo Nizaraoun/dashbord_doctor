@@ -59,8 +59,8 @@ const routes: Routes = [
 
 
   {
-    path: '', 
-    redirectTo: 'dashboard/home', 
+    path: '',
+    redirectTo: 'chat',
     pathMatch: 'full'
   }
 ];
