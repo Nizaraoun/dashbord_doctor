@@ -10,6 +10,7 @@ import { DoctorProfileComponent } from './components/pages/doctor-profile/doctor
 import { EditPatientProfilComponent } from './components/pages/edit-patient-profil/edit-patient-profil.component';
 import { PatientProfileComponent } from './components/pages/patient-profile/patient-profile.component';
 import { CalendarComponent } from './components/pages/calendar/calendar.component';
+import { Page404Component } from './components/pages/errors/page-404/page-404.component';
 
 const routes: Routes = [
   {
@@ -53,12 +54,19 @@ const routes: Routes = [
     component: PatientProfileComponent,
   },
   {
+    path: "401",
+    component: Page404Component,
+  },
+  {
     path: "editpatientprofile",
     component: EditPatientProfilComponent,
   },
 
 
   {
+    path: '', 
+    redirectTo: 'chat', 
+
     path: '',
     redirectTo: 'chat',
     pathMatch: 'full'
