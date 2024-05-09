@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private patient: PatientService,
   ) {
-    
+
   }
 
   ngOnInit(): void {
@@ -48,11 +48,11 @@ export class HomeComponent implements OnInit {
     // Assuming appointmentDTO is of type AppointmentDTO[]
   this.patient.getAllPatients( this.Token).subscribe((data: appointmentDTO[]) => {
     this.appointments = data;
-      
+
   });
 
-   
+
   }
-    
-  
+
+
 }

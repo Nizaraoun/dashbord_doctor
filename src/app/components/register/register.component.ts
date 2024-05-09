@@ -22,7 +22,7 @@ export class RegisterComponent {
   }, {
     validators: passwordMatchValidator
   });
-  
+
 
   constructor(
     private fb: FormBuilder,
@@ -30,23 +30,23 @@ export class RegisterComponent {
     private messageService: MessageService,
     private router: Router
   ) { }
-  
+
   get phone() {
     return this.registerForm.controls['phone'];
   }
-  
+
   get email() {
-    return this.registerForm.controls['username'];
-  }
-  
-  get username() {
     return this.registerForm.controls['email'];
   }
-  
+
+  get username() {
+    return this.registerForm.controls['username'];
+  }
+
   get password() {
     return this.registerForm.controls['password'];
   }
-  
+
   get specialty() {
     return this.registerForm.controls['specialty'];
   }
@@ -69,14 +69,14 @@ export class RegisterComponent {
   //       reject('Geolocation is not supported by this browser.');
   //     }
   //   });}
-  
+
   submitDetails() {
     const postData = { ...this.registerForm.value };
     this.authService.registerDoctor(postData as register).subscribe(
       response => {
         if (response!=null) { // Check if the response is successful
           console.log('Doctor registered successfully!');
-          
+
           this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Doctor registered successfully' });
           this.router.navigate(['/login']);
         } else {
@@ -90,5 +90,5 @@ export class RegisterComponent {
       }
     );
   }
-  
+
   }

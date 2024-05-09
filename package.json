@@ -25,6 +25,7 @@
     "@types/luxon": "^3.4.2",
     "bootstrap": "^5.3.3",
     "devextreme": "^23.2.5",
+    "highcharts": "^11.4.1",
     "highcharts-angular": "^4.0.0",
     "luxon": "^3.4.4",
     "moment": "^2.30.1",

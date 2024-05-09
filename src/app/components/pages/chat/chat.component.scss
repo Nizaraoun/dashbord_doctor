@@ -1,14 +1,14 @@
 .gradient-custom {
     /* fallback for old browsers */
     background: #089bab;
-    
+
     /* Chrome 10-25, Safari 5.1-6 */
     background: -webkit-linear-gradient(to bottom right, #089bab, #089bab);
-    
+
     // /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     // background: linear-gradient(to bottom right, #fdfdfd, rgb(253, 253, 253))
     }
-    
+
     .mask-custom {
     background: #A2DBFA;
     border-radius: 2em;
@@ -16,4 +16,35 @@
     border: 2px solid rgba(255, 255, 255, 0.05);
     background-clip: padding-box;
     box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+    }
+
+    ::-webkit-scrollbar-track {
+      width: 5px;
+      background: #f5f5f5;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      width: 1em;
+      background-color: #ddd;
+      outline: 1px solid slategrey;
+      border-radius: 1rem;
+    }
+
+    .text-small {
+      font-size: 0.9rem;
+    }
+
+    .messages-box,
+    .chat-box {
+      height: 510px;
+      overflow-y: scroll;
+    }
+
+    .rounded-lg {
+      border-radius: 0.5rem;
+    }
+
+    input::placeholder {
+      font-size: 0.9rem;
+      color: #999;
     }
