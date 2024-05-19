@@ -63,7 +63,7 @@
                                         <span class="bg-danger" data-percent="50"></span>
                                     </div>
                                     <span class="line-height-4">Number of followers</span>
-                                    <h4 class="mb-2 mt-2">02</h4>
+                                    <h4 class="mb-2 mt-2">{{followers}}</h4>
                                     <p class="mb-0 text-secondary line-height">followers</p>
                                 </div>
                             </div>
@@ -75,14 +75,13 @@
                         <div class="iq-card-body">
                             <div class="user-details-block">
                                 <div class="user-profile text-center">
-                                    <img src="assets/images/user/11.png" alt="profile-img" class="avatar-130 img-fluid">
+                                    <img [src]="imageprofile" alt="profile-img" class="rounded-circle avatar-100 align-items-center">
                                 </div>
                                 <div class="text-center mt-3">
                                     <h4><b>{{Username}}</b></h4>
-                                    <p>Doctor</p>
                                     <p>Docteur Houda Habib, Medecin chirurgien cardio-vasculaire et thoracique
                                     </p>
-                                    <a routerLink="#" class="btn btn-primary">Assign</a>
+                                    <a routerLink="#" class="btn btn-primary">Add Post</a>
                                 </div>
                                 <hr>
                                 <ul class="doctoe-sedual d-flex align-items-center justify-content-between p-0">
@@ -99,116 +98,69 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8">
-                    <div class="iq-card">
-                        <div class="iq-card-header d-flex justify-content-between">
-                            <div class="iq-header-title">
-                                <h4 class="card-title">Publications</h4>
-                            </div>
-                        </div>
-                        <div class="iq-card-body">
-                            <div id="home-chart-06">
-                                <highcharts-chart [Highcharts]="chartPacientesPorGenero" [options]="pacientesPorGeneroOptions"
-                                    class="w-1/2"></highcharts-chart>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!-- post div -->
+<div class="col-lg-8">
+    <div class="iq-card">
+      <div class="iq-card-header d-flex justify-content-between">
+        <div class="iq-header-title">
+          <h4 class="card-title">Publications</h4>
+        </div>
+      </div>
+      <div class="iq-card-body">
+        <!-- Display only the first three posts -->
+        <div *ngFor="let post of feed.slice(0, 3)" class="post">
+          <!-- Post header -->
+          <div class="post-header d-flex align-items-center">
+            <div class="user-img img-fluid">
+              <img [src]="post.senderImg" alt="story-img" class="rounded-circle avatar-40">
+            </div>
+            <div class="author-details ml-3">
+              <a class="author-name">{{ post.senderName }}</a>
+              <span class="post-time font-size-12 ml-0">{{ post.createdAt }}</span>
+            </div>
+          </div>
+          
+          <!-- Post content -->
+          <div class="post-content">
+            <p>{{ post.content   }}</p>
+          </div>
+          <!-- Post actions -->
+          <div class="post-actions">
+            <button class="action-button like-button">
+                <i class="fas fa-thumbs-up p-2"></i> <!-- Add mr-2 class here -->
+                Like
+              </button>
+              <button class="action-button comment-button">
+                <i class="fas fa-comment p-2"></i> <!-- Add mr-2 class here -->
+                Comment
+              </button>
+              <button class="action-button share-button">
+                <i class="fas fa-share p-3"></i> <!-- Add mr-2 class here -->
+                Share
+              </button>
+                            
+
+     
+          </div>
+        </div>
+        <!-- Button to navigate to full post list page -->
+        <button class="btn btn-primary" (click)="navigateToAllPosts()">View More Posts</button>
+        <!-- End of dynamic posts -->
+        <div id="home-chart-06">
+          <!-- Placeholder for other content (e.g., chart) -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end post -->
             </div>
             <div class="row">
 
 
-                <div class="col-lg-4">
-                    <div class="iq-card">
-                        <div class="iq-card-body">
-                            <h6>APPOINTMENTS</h6>
-                            <h3><b>02</b></h3>
-                        </div>
-                        <div class="wave-chart-container" style="height: 80px;">
-                            <div id="wave-chart-7"></div>
-                        </div>
-                    </div>
-
-                </div>
+                
 
             </div>
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="iq-card">
-                        <div class="iq-card-header d-flex justify-content-between">
-                            <div class="iq-header-title">
-                                <h4 class="card-title">Patient Progress</h4>
-                            </div>
-                        </div>
-                        <div class="iq-card-body">
-                            <ul class="patient-progress m-0 p-0">
-                                <li class="d-flex mb-3 align-items-center">
-                                    <div class="media-support-info">
-                                        <h6>Bud Jet</h6>
-                                    </div>
-                                    <span class="badge badge-primary">30%</span>
-                                </li>
-                                <li class="d-flex mb-3 align-items-center">
-                                    <div class="media-support-info">
-                                        <h6>Barney Cull</h6>
-                                    </div>
-                                    <span class="badge badge-success">70%</span>
-                                </li>
-                                <li class="d-flex mb-3 align-items-center">
-                                    <div class="media-support-info">
-                                        <h6>Eric Shun</h6>
-                                    </div>
-                                    <span class="badge badge-danger">15%</span>
-                                </li>
-                                <li class="d-flex mb-3 align-items-center">
-                                    <div class="media-support-info">
-                                        <h6>Rick Shaw</h6>
-                                    </div>
-                                    <span class="badge badge-warning">55%</span>
-                                </li>
-                                <li class="d-flex mb-3 align-items-center">
-                                    <div class="media-support-info">
-                                        <h6>Ben Effit</h6>
-                                    </div>
-                                    <span class="badge badge-info">45%</span>
-                                </li>
-                                <li class="d-flex mb-3 align-items-center">
-                                    <div class="media-support-info">
-                                        <h6>Rick Shaw</h6>
-                                    </div>
-                                    <span class="badge badge-warning">55%</span>
-                                </li>
-                                <li class="d-flex mb-3 align-items-center">
-                                    <div class="media-support-info">
-                                        <h6>Marge Arita</h6>
-                                    </div>
-                                    <span class="badge badge-primary">65%</span>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <div class="media-support-info">
-                                        <h6>Barry Cudat</h6>
-                                    </div>
-                                    <span class="badge badge-danger">15%</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="iq-card">
-                        <div class="iq-card-header d-flex justify-content-between">
-                            <div class="iq-header-title">
-                                <h4 class="card-title">Patient overview</h4>
-                            </div>
-                        </div>
-                        <div class="iq-card-body">
-                            <div id="home-chart-03" style="height: 280px;"></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="row">
+                      <div class="row">
                 <div class="col-lg-8">
                     <div class="iq-card">
                         <div class="iq-card-header d-flex justify-content-between">
@@ -266,16 +218,27 @@
                             <div class="iq-header-title">
                                 <h4 class="card-title">Doctors Lists</h4>
                             </div>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle text-primary" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Filter
+                                    <i class="ri-filter-3-line"></i>
+                                </button>
+                                <ul class="dropdown-menu scrollable-menu" aria-labelledby="filterDropdown">
+                                    <li *ngFor="let option of specilaityOptions">
+                                        <a class="dropdown-item" (click)="findDoctorBySpecialty( option)"    >{{ option }}</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="iq-card-body">
                             <ul class="doctors-lists m-0 p-0">
-                                <li class="d-flex mb-4 align-items-center">
-                                    <div class="user-img img-fluid"><img src="assets/images/user/01.jpg" alt="story-img"
-                                            class="rounded-circle avatar-40"></div>
+                                <li *ngFor="let doctor of doctor" class="d-flex mb-4 align-items-center">
+                                    <div class="user-img img-fluid"><img [src]="doctor.image"  alt="story-img" class="rounded-circle avatar-40"></div>
                                     <div class="media-support-info ms-3">
-                                        <h6>Dr. Foulen</h6>
-                                        <p class="mb-0 font-size-12">Spécialité</p>
+                                        <h6>{{ doctor.username }}</h6>
+                                        <p class="mb-0 font-size-12">{{ doctor.speciality }}</p>
                                     </div>
+                            
                                     <div class="iq-card-header-toolbar d-flex align-items-center">
                                         <div class="dropdown show">
                                             <span class="dropdown-toggle text-primary" id="dropdownMenuButton41"
@@ -283,218 +246,19 @@
                                                 <i class="ri-more-2-line"></i>
                                             </span>
                                             <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" routerLink="#"><i
-                                                        class="ri-eye-line me-2"></i>View</a>
-                                                <a class="dropdown-item" routerLink="#"><i
-                                                        class="ri-bookmark-line me-2"></i>Appointment</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex mb-4 align-items-center">
-                                    <div class="user-img img-fluid"><img src="assets/images/user/02.jpg" alt="story-img"
-                                            class="rounded-circle avatar-40"></div>
-                                    <div class="media-support-info ms-3">
-                                        <h6>Dr. Foulen</h6>
-                                        <p class="mb-0 font-size-12">Spécialité</p>
-                                    </div>
-                                    <div class="iq-card-header-toolbar d-flex align-items-center">
-                                        <div class="dropdown show">
-                                            <span class="dropdown-toggle text-primary" id="dropdownMenuButton42"
-                                                data-bs-toggle="dropdown" aria-expanded="true" role="button">
-                                                <i class="ri-more-2-line"></i>
-                                            </span>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" routerLink="#"><i
-                                                        class="ri-eye-line me-2"></i>View</a>
-                                                <a class="dropdown-item" routerLink="#"><i
-                                                        class="ri-bookmark-line me-2"></i>Appointment</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex mb-4 align-items-center">
-                                    <div class="user-img img-fluid"><img src="assets/images/user/03.jpg" alt="story-img"
-                                            class="rounded-circle avatar-40"></div>
-                                    <div class="media-support-info ms-3">
-                                        <h6>Dr. Foulen</h6>
-                                        <p class="mb-0 font-size-12">Spécialité</p>
-                                    </div>
-                                    <div class="iq-card-header-toolbar d-flex align-items-center">
-                                        <div class="dropdown show">
-                                            <span class="dropdown-toggle text-primary" id="dropdownMenuButton43"
-                                                data-bs-toggle="dropdown" aria-expanded="true" role="button">
-                                                <i class="ri-more-2-line"></i>
-                                            </span>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" routerLink="#"><i
-                                                        class="ri-eye-line me-2"></i>View</a>
-                                                <a class="dropdown-item" routerLink="#"><i
-                                                        class="ri-bookmark-line me-2"></i>Appointment</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex mb-4 align-items-center">
-                                    <div class="user-img img-fluid"><img src="assets/images/user/04.jpg" alt="story-img"
-                                            class="rounded-circle avatar-40"></div>
-                                    <div class="media-support-info ms-3">
-                                        <h6>Dr. Foulen</h6>
-                                        <p class="mb-0 font-size-12">Spécialité</p>
-                                    </div>
-                                    <div class="iq-card-header-toolbar d-flex align-items-center">
-                                        <div class="dropdown show">
-                                            <span class="dropdown-toggle text-primary" id="dropdownMenuButton44"
-                                                data-bs-toggle="dropdown" aria-expanded="true" role="button">
-                                                <i class="ri-more-2-line"></i>
-                                            </span>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" routerLink="#"><i
-                                                        class="ri-eye-line me-2"></i>View</a>
-                                                <a class="dropdown-item" routerLink="#"><i
-                                                        class="ri-bookmark-line me-2"></i>Appointment</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex mb-4 align-items-center">
-                                    <div class="user-img img-fluid"><img src="assets/images/user/05.jpg" alt="story-img"
-                                            class="rounded-circle avatar-40"></div>
-                                    <div class="media-support-info ms-3">
-                                        <h6>Dr. Foulen</h6>
-                                        <p class="mb-0 font-size-12">Spécialité</p>
-                                    </div>
-                                    <div class="iq-card-header-toolbar d-flex align-items-center">
-                                        <div class="dropdown show">
-                                            <span class="dropdown-toggle text-primary" id="dropdownMenuButton45"
-                                                data-bs-toggle="dropdown" aria-expanded="true" role="button">
-                                                <i class="ri-more-2-line"></i>
-                                            </span>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" routerLink="#"><i
-                                                        class="ri-eye-line me-2"></i>View</a>
-                                                <a class="dropdown-item" routerLink="#"><i
-                                                        class="ri-bookmark-line me-2"></i>Appointment</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex mb-4 align-items-center">
-                                    <div class="user-img img-fluid"><img src="assets/images/user/06.jpg" alt="story-img"
-                                            class="rounded-circle avatar-40"></div>
-                                    <div class="media-support-info ms-3">
-                                        <h6>Dr. Foulen</h6>
-                                        <p class="mb-0 font-size-12">Spécialité</p>
-                                    </div>
-                                    <div class="iq-card-header-toolbar d-flex align-items-center">
-                                        <div class="dropdown show">
-                                            <span class="dropdown-toggle text-primary" id="dropdownMenuButton46"
-                                                data-bs-toggle="dropdown" aria-expanded="true" role="button">
-                                                <i class="ri-more-2-line"></i>
-                                            </span>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" routerLink="#"><i
-                                                        class="ri-eye-line me-2"></i>View</a>
-                                                <a class="dropdown-item" routerLink="#"><i
-                                                        class="ri-bookmark-line me-2"></i>Appointment</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex mb-4 align-items-center">
-                                    <div class="user-img img-fluid"><img src="assets/images/user/07.jpg" alt="story-img"
-                                            class="rounded-circle avatar-40"></div>
-                                    <div class="media-support-info ms-3">
-                                        <h6>Dr. Foulen</h6>
-                                        <p class="mb-0 font-size-12">Spécialité</p>
-                                    </div>
-                                    <div class="iq-card-header-toolbar d-flex align-items-center">
-                                        <div class="dropdown show">
-                                            <span class="dropdown-toggle text-primary" id="dropdownMenuButton47"
-                                                data-bs-toggle="dropdown" aria-expanded="true" role="button">
-                                                <i class="ri-more-2-line"></i>
-                                            </span>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" routerLink="#"><i
-                                                        class="ri-eye-line me-2"></i>View</a>
-                                                <a class="dropdown-item" routerLink="#"><i
-                                                        class="ri-bookmark-line me-2"></i>Appointment</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex mb-4 align-items-center">
-                                    <div class="user-img img-fluid"><img src="assets/images/user/08.jpg" alt="story-img"
-                                            class="rounded-circle avatar-40"></div>
-                                    <div class="media-support-info ms-3">
-                                        <h6>Dr. Foulen</h6>
-                                        <p class="mb-0 font-size-12">Spécialité</p>
-                                    </div>
-                                    <div class="iq-card-header-toolbar d-flex align-items-center">
-                                        <div class="dropdown show">
-                                            <span class="dropdown-toggle text-primary" id="dropdownMenuButton48"
-                                                data-bs-toggle="dropdown" aria-expanded="true" role="button">
-                                                <i class="ri-more-2-line"></i>
-                                            </span>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" routerLink="#"><i
-                                                        class="ri-eye-line me-2"></i>View</a>
-                                                <a class="dropdown-item" routerLink="#"><i
-                                                        class="ri-bookmark-line me-2"></i>Appointment</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex mb-4 align-items-center">
-                                    <div class="user-img img-fluid"><img src="assets/images/user/09.jpg" alt="story-img"
-                                            class="rounded-circle avatar-40"></div>
-                                    <div class="media-support-info ms-3">
-                                        <h6>Dr. Foulen</h6>
-                                        <p class="mb-0 font-size-12">Spécialité</p>
-                                    </div>
-                                    <div class="iq-card-header-toolbar d-flex align-items-center">
-                                        <div class="dropdown show">
-                                            <span class="dropdown-toggle text-primary" id="dropdownMenuButton49"
-                                                data-bs-toggle="dropdown" aria-expanded="true" role="button">
-                                                <i class="ri-more-2-line"></i>
-                                            </span>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" routerLink="#"><i
-                                                        class="ri-eye-line me-2"></i>View</a>
-                                                <a class="dropdown-item" routerLink="#"><i
-                                                        class="ri-bookmark-line me-2"></i>Appointment</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="d-flex mb-4 align-items-center">
-                                    <div class="user-img img-fluid"><img src="assets/images/user/10.jpg" alt="story-img"
-                                            class="rounded-circle avatar-40"></div>
-                                    <div class="media-support-info ms-3">
-                                        <h6>Dr. Foulen</h6>
-                                        <p class="mb-0 font-size-12">Spécialité</p>
-                                    </div>
-                                    <div class="iq-card-header-toolbar d-flex align-items-center">
-                                        <div class="dropdown show">
-                                            <span class="dropdown-toggle text-primary" id="dropdownMenuButton50"
-                                                data-bs-toggle="dropdown" aria-expanded="true" role="button">
-                                                <i class="ri-more-2-line"></i>
-                                            </span>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" routerLink="#"><i
-                                                        class="ri-eye-line me-2"></i>View</a>
-                                                <a class="dropdown-item" routerLink="#"><i
-                                                        class="ri-bookmark-line me-2"></i>Appointment</a>
+                                                <a class="dropdown-item" routerLink="#"><i class="ri-eye-line me-2"></i>View</a>
+                                                <a class="dropdown-item" routerLink="#"><i class="ri-bookmark-line me-2"></i>Appointment</a>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
                             </ul>
-                            <a routerLink="javascript:void();" class="btn btn-primary d-block mt-3"><i
-                                    class="ri-add-line"></i> View All Doctors </a>
+                            
+                          
                         </div>
                     </div>
                 </div>
+                
             </div>
 
         </div>

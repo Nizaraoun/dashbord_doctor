@@ -2,8 +2,10 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "strictPropertyInitialization": false,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "types": ["node"],
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
@@ -17,6 +19,8 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "ES2022",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
     "module": "ES2022",
     "useDefineForClassFields": false,
     "lib": [

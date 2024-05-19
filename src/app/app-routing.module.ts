@@ -11,6 +11,7 @@ import { EditPatientProfilComponent } from './components/pages/edit-patient-prof
 import { PatientProfileComponent } from './components/pages/patient-profile/patient-profile.component';
 import { CalendarComponent } from './components/pages/calendar/calendar.component';
 import { Page404Component } from './components/pages/errors/page-404/page-404.component';
+import {  PostComponent } from './components/pages/post/post.component';
 
 const routes: Routes = [
   {
@@ -61,14 +62,15 @@ const routes: Routes = [
     path: "editpatientprofile",
     component: EditPatientProfilComponent,
   },
+  {
+    path:"post",
+    component: PostComponent,
+  },
 
 
   {
     path: '', 
-    redirectTo: 'chat', 
-
-    path: '',
-    redirectTo: 'chat',
+    redirectTo: 'dashboard/home', 
     pathMatch: 'full'
   }
 ];
@@ -76,5 +78,5 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
-})
+}) 
 export class AppRoutingModule { }

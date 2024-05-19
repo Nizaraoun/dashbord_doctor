@@ -48,6 +48,7 @@ export class LoginComponent {
           const role = response.doctor.role;
           const image = response.doctor.image;
           const rating = response.doctor.rating;
+          const followers = response.doctor.followers;
           // Save the data in local storage
           localStorage.setItem('accessToken', accessToken);
           localStorage.setItem('email', email);
@@ -58,6 +59,7 @@ export class LoginComponent {
           localStorage.setItem('role', role);
           localStorage.setItem('rating',rating) 
           localStorage.setItem('image',image)
+          localStorage.setItem('followers',followers)
           this.router.navigate(['/dashboard/home']);
         
 

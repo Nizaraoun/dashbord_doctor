@@ -3,22 +3,26 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import {  appointmentDTO} from '../interfaces/appointmentDTO';
+import { Feed } from '../interfaces/feed';
+import { doctorDto } from '../interfaces/doctorDto';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PatientService {
+export class DoctorService {
 
 
   constructor(private http: HttpClient) {}
 
-  getAllPatients(token: string): Observable<appointmentDTO[]> {
-
+  findDoctorBySpecialty(Token: string, speciality :string): Observable<doctorDto[]> {
+    console.log(speciality);
+    const url = `http://localhost:8080/api/get_doctor_By_Speciality?speciality=${speciality}`;
+ 
     // Set headers with the token
     const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`,
+      'Authorization': `Bearer ${Token}`,
     });
     // Make a GET request to the server
-    return this.http.get<appointmentDTO[]>(`http://localhost:8080/api/getAllReservationsForDashboard`, { headers: headers });
+    return this.http.get<doctorDto[]>(url,  { headers: headers ,  });
   }
 }
