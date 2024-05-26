@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, Inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { NavbarComponent } from '../../navbar/navbar.component';
 import { SidenavComponent } from '../../sidenav/sidenav.component';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import { RouterLink } from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'hospital-post',

@@ -1,5 +1,4 @@
 import * as Highcharts from "highcharts";
-import { Component, OnInit, inject } from "@angular/core";
 import { HighchartsChartModule } from "highcharts-angular";
 import { SidenavComponent } from "../../../components/sidenav/sidenav.component";
 import { SocketService } from "src/app/services/socket.service";
@@ -9,13 +8,14 @@ import{accessToken} from '../../constants/socketUrl';
 import {filterOptions} from '../../constants/specialty';
 import { appointmentDTO} from '../../../interfaces/appointmentDTO';
 import { CommonModule } from "@angular/common";
-import { Router, RouterLink } from '@angular/router';
 import { Feed } from "src/app/interfaces/feed";
 import { FeedService } from "src/app/services/feed.service";
 import { DoctorService } from "src/app/services/doctor.service";
 import { doctorDto } from "src/app/interfaces/doctorDto";
 import { A } from "@fullcalendar/core/internal-common";
 import { AppointmentService } from "src/app/services/appointment.service";
+import { Router, RouterLink } from "@angular/router";
+import { Component, OnInit, inject } from "@angular/core";
 
 @Component({
     selector: "hospital-home",

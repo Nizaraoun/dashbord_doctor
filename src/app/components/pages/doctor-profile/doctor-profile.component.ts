@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
 import { HighchartsChartModule } from "highcharts-angular";
 import { NavbarComponent } from "../../../components/navbar/navbar.component";
-import { RouterLink } from "@angular/router";
 import { SidenavComponent } from "../../../components/sidenav/sidenav.component";
 import { Username } from '../../constants/socketUrl';
+import { Component, OnInit } from "@angular/core";
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'hospital-doctor-profile',

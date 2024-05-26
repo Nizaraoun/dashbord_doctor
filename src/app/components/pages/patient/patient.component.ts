@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { NavbarComponent } from '../../navbar/navbar.component';
 import { SidenavComponent } from '../../sidenav/sidenav.component';
+import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 interface Bookmark {
   img: string;
