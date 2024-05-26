@@ -7,13 +7,15 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MessageService } from 'primeng/api';
 import { HomeComponent } from './components/pages/home/home.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { HomeComponent } from './components/pages/home/home.component';
     
   ],
   imports: [
+    DropdownModule,  // Add PrimeNG DropdownModule here
     BrowserModule,
     AppRoutingModule,
     CardModule,
@@ -30,8 +33,10 @@ import { HomeComponent } from './components/pages/home/home.component';
     ReactiveFormsModule,
     ButtonModule,
     HttpClientModule,
+    FormsModule , // Add this line
     ToastModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

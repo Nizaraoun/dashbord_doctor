@@ -45,8 +45,8 @@
             </div>
             <!-- Receiver Message -->
             <div *ngIf="message.id === doctorId" class="media w-50 ml-auto mb-3 receiver-message">
-              <div class="media-body">
-                <div class="message-receiver bg-primary rounded py-2 px-3 mb-2">
+              <div class="media-body mr-3">
+                <div class="message-receiver bg-primary rounded py-2 px-3 mb-2 ">
                   <p class="text-small mb-0 text-white"> {{ message.messages }}</p>
                 </div>
               </div>
@@ -57,18 +57,18 @@
         <!-- end chat -->
 
         <!-- Typing area -->
-        <form  [formGroup]="MsgForm"  class="rounded-5 px-1 ">
-          <div class="input-group">
+        <form [formGroup]="MsgForm" class="rounded-5 px-1">
+          <div class="input-group rounded-5">
             <input
-        type="text"
-        pInputText
-        formControlName="message"
-        class="w-full"
-        name="message"
-        placeholder="Type your phone number"
-      />
+              type="text"
+              pInputText
+              formControlName="message"
+              class="form-control"
+              name="message"
+              placeholder="Type your message here ..."
+            />
             <div class="input-group-append">
-              <button id="button-addon2" type="submit" class="btn btn-link" (click)="sendMessage(chatId)">
+              <button id="button-addon2" type="submit" class="btn btn-link " (click)="sendMessage(chatId)">
                 <i class="fa fa-paper-plane"></i>
               </button>
             </div>

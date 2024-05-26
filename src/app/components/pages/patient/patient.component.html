@@ -1,0 +1,44 @@
+<div class="wrapper">
+    <hospital-sidenav class="iq-sidebar" />
+        <div id="content-page" class="content-page">
+   <hospital-navbar />
+   <div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+        <div class="header_box">
+          <h2 class="d-inline-block">Patient List</h2>
+        
+        </div>
+        <div class="list_general">
+          <ul>
+            
+            <li *ngFor="let bookmark of bookmarks">
+              <figure><img [src]="bookmark.img" alt=""></figure>
+              <small>{{ bookmark.category }}</small>
+              <h4>{{ bookmark.name }}</h4>
+              <p>{{ bookmark.address }}<br></p>
+              <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-user"></i> View profile</a></p>
+              <!-- <ul class="buttons">
+                <li><a href="#0" class="btn_1 gray delete wishlist_close" ><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
+              </ul> -->
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- /box_general-->
+      <nav aria-label="...">
+        <ul class="pagination pagination-sm add_bottom_30">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <a class="page-link" href="#" (click)="changePage(currentPage - 1)">Previous</a>
+          </li>
+          <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage">
+            <a class="page-link" href="#" (click)="changePage(page)">{{ page }}</a>
+          </li>
+          <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <a class="page-link" href="#" (click)="changePage(currentPage + 1)">Next</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /pagination-->
+    </div>
+  </div>

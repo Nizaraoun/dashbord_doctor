@@ -1,46 +1,41 @@
-<form  class="body" [formGroup]="loginForm" (ngSubmit)="loginUser()">
-  <p-card header="Login" [style]="{ width: '360px' }">
+<form class="body form-background" [formGroup]="loginForm" (ngSubmit)="loginUser()">
+  <p-card header="Login" [style]="{ width: '360px' }" class="login-card">
     <div class="field">
-      <label for="email">Email</label>
+      <label for="email" class="field-label">Email</label>
       <input
         type="text"
         pInputText
         formControlName="email"
-        class="w-full"
+        class="w-full field-input"
         name="email"
         placeholder="Type your email"
       />
-      <small
-        *ngIf="email.invalid && (email.dirty || email.touched)"
-        class="block p-error"
-      >
+      <small *ngIf="email.invalid && (email.dirty || email.touched)" class="block p-error">
         <div *ngIf="email.errors?.['required']">Email is required.</div>
-        <div *ngIf="email.errors?.['email']">Email should be valid</div>
+        <div *ngIf="email.errors?.['email']">Email should be valid.</div>
       </small>
     </div>
     <div class="field">
-      <label for="password">Password</label>
+      <label for="password" class="field-label">Password</label>
       <input
         type="password"
         pInputText
         formControlName="password"
-        class="w-full"
+        class="w-full field-input"
         name="password"
         placeholder="Type your password"
       />
-      <small
-        *ngIf="password.invalid && (password.dirty || password.touched)"
-        class="block p-error"
-      >
+      <small *ngIf="password.invalid && (password.dirty || password.touched)" class="block p-error">
         <div *ngIf="password.errors?.['required']">Password is required.</div>
       </small>
     </div>
     <p-button
       label="SIGN IN"
-      styleClass="w-full"
+      class="w-full sign-in-button"
+      styleClass="w-full sign-in-button"
       [disabled]="loginForm.invalid"
       type="submit"
     ></p-button>
-    <div class="mt-2">Not a member? <a routerLink="/register">Register</a></div>
+    <div class="mt-2 register-link">Not a member? <a routerLink="/register">Register</a></div>
   </p-card>
 </form>

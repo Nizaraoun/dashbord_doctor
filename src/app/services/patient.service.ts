@@ -21,4 +21,5 @@ export class PatientService {
     // Make a GET request to the server
     return this.http.get<appointmentDTO[]>(`http://localhost:8080/api/getAllReservationsForDashboard`, { headers: headers });
   }
+  
 }

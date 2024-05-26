@@ -1,3 +1,31 @@
+
+<div class="wrapper">
+    <hospital-sidenav class="iq-sidebar" />
+    <div id="content-page" class="content-page">
+        <hospital-navbar />
+        <div class="post-container">
+            <div class="post-header">
+                <div class="avatar-container">
+                    <img src="assets/images/page-img/300.png" alt="User Avatar" class="avatar" />
+                </div>
+                <div class="create-post">
+                    <h3 class="post-title">Create a Post</h3>
+                    <div class="input-container">
+                        <textarea
+                            class="post-input"
+                            placeholder="Write something..."
+                            rows="1.5"
+                            cols="50"
+                            (input)="adjustTextArea($event)"
+                        ></textarea>
+                        <i class="fa fa-share-square-o blue-icon" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+          
 <div class="post">
     <div class="post-header">
         <img class="profile-picture" src="assets/images/profile-picture.jpg" alt="Profile Picture">
@@ -5,18 +33,27 @@
             <a class="author-name" href="#">Merry Watson</a>
             <span class="post-time">20 min ago</span>
         </div>
-        <button class="post-options">...</button>
-    </div>
+        <div class="iq-card-header-toolbar d-flex align-items-center">
+            <div class="dropdown">
+                <span class="dropdown-toggle text-primary" id="dropdownMenuButton5"
+                    data-bs-toggle="dropdown">
+                    <i class="ri-more-fill"></i>
+                </span>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton5">
+                    <a class="dropdown-item" routerLink="#"><i class="fa fa-ban me-2"></i>signaler</a>
+                </div>
+            </div>
+        </div>    </div>
     <div class="post-content">
         <p>
             Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, 
             and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
         </p>
-        <img class="post-image" src="assets/images/post-image.jpg" alt="Post Image">
     </div>
     <div class="post-actions">
         <button class="action-button"><i class="fas fa-thumbs-up"></i> Like</button>
         <button class="action-button"><i class="fas fa-comment"></i> Comment</button>
-        <button class="action-button"><i class="fas fa-share"></i> Share</button>
+        <button mat-button (click)="openDialog()">Open dialog</button>
+
     </div>
 </div>

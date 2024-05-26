@@ -1,6 +1,6 @@
 .body{
     width: 100%;
-    background-color: rgb(244, 237, 237);
+    background-color: rgb(88, 64, 172);
     color: white;
     font-family: Arial, sans-serif;
     font-size: 1.2em;
@@ -10,4 +10,76 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-}
+}:host ::ng-deep .login-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+  }
+  
+  .field {
+    margin-bottom: 1.5rem;
+  }
+  
+  .field-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .field-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+  
+  .field-input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .p-error {
+    color: #d9534f;
+    font-size: 0.875rem;
+  }
+  
+  .w-full .sign-in-button {
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+    color: #6daad1;
+    padding: 0.75rem;
+    font-size: 1rem;
+    
+  }
+  
+  .form-background {
+    background-image: url('src/assets/images/subheader_bg_1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px; /* Add padding if needed */
+  }
+  .sign-in-button:disabled {
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+  }
+  
+  .register-link {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .register-link a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .register-link a:hover {
+    text-decoration: underline;
+  }
+  

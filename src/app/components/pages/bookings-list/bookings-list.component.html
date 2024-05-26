@@ -1,0 +1,46 @@
+<div class="wrapper">
+    <hospital-sidenav class="iq-sidebar"></hospital-sidenav>
+    <div id="content-page" class="content-page">
+        <hospital-navbar></hospital-navbar>
+        <div class="box_general">
+        <div class="header_box">
+            <h2 class="d-inline-block">Bookings List</h2>
+          
+        </div>
+        
+        <div class="list_general">
+            <ul>
+                <li *ngFor="let booking of appointments">
+                    <figure><img src="assets/images/user/10.jpg" alt=""></figure>
+                    <h4>{{ booking.patientname }}</h4>
+                    <ul class="booking_details">
+                        <li><strong>Booking date</strong> {{ booking.jour }}</li>
+                        <li><strong>Booking time</strong> {{ booking.heure }}</li>
+                        <li><strong>Telephone</strong> {{ booking.patientphone }}</li>
+                        <li><strong>Email</strong> {{ booking.patientemail}}</li>
+                    </ul>
+                    <ul class="buttons">
+                        <li><a (click)="completeAppointment(booking.id)" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> completed</a></li>
+                        <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-wrench"></i> rescheduled</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <nav aria-label="...">
+        <ul class="pagination pagination-sm add_bottom_30">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+ 
+

@@ -14,6 +14,8 @@ import { Feed } from "src/app/interfaces/feed";
 import { FeedService } from "src/app/services/feed.service";
 import { DoctorService } from "src/app/services/doctor.service";
 import { doctorDto } from "src/app/interfaces/doctorDto";
+import { A } from "@fullcalendar/core/internal-common";
+import { AppointmentService } from "src/app/services/appointment.service";
 
 @Component({
     selector: "hospital-home",
@@ -50,7 +52,8 @@ specilaityOptions = filterOptions;
     private patient: PatientService,
     private FeedService: FeedService,
     private router: Router,
-    private doctorservice: DoctorService
+    private doctorservice: DoctorService,
+    private appointmentService: AppointmentService
     ) {
 
   }
@@ -71,6 +74,8 @@ specilaityOptions = filterOptions;
     // Assuming appointmentDTO is of type AppointmentDTO[]
   this.patient.getAllPatients( this.Token).subscribe((data: appointmentDTO[]) => {
     this.appointments = data;
+    this.appointmentService.setAppointments(data); // Set appointments in the service
+
 
   });
 

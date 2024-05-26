@@ -9,9 +9,29 @@ import { passwordMatchValidator } from 'src/app/shared/password-match.directive'
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'] 
 })
 export class RegisterComponent {
+  // Define dropdown values with French labels and Arabic values
+  dropdownValues = [
+    { label: "la médecine générale", value: "الطب العام" },
+    { label: "Neurologie", value: "طب الأعصاب" },
+    { label: "dentiste", value: "طب الأسنان" },
+    { label: "cardiologie", value: "طب القلب" },
+    { label: "médecine pulmonaire", value: "طب الرئة" },
+    { label: "Chirurgie générale", value: "الجراحة العامة" },
+    { label: "Ophtalmologie", value: "طب العيون" },
+    { label: "Pédiatrie", value: "طب الأطفال" },
+    { label: "psychiatrie", value: "طب النفسي" },
+    { label: "Gynécologie et Obstétrique", value: "الطب النسائي والتوليد" },
+    { label: "Médecine Cardiovasculaire", value: "طب القلب والأوعية الدموية" },
+    { label: "Oncologie", value: "طب الأورام" },
+    { label: "Médecine des oreilles, du nez et de la gorge", value: "طب الأذن والأنف والحنجرة" },
+    { label: "dentisterie cosmétique", value: "طب الأسنان التجميلي" },
+    { label: "Physiothérapie et Médecine de Réadaptation", value: "طب العلاج الطبيعي وإعادة التأهيل" },
+    { label: "Chirurgie plastique", value: "الجراحة التجميلية" },
+    { label: "Dermatologie", value: "طب الأمراض الجلدية" }
+  ];
 
   registerForm = this.fb.group({
     phone: ['', Validators.required],
@@ -22,7 +42,6 @@ export class RegisterComponent {
   }, {
     validators: passwordMatchValidator
   });
-
 
   constructor(
     private fb: FormBuilder,
@@ -50,38 +69,18 @@ export class RegisterComponent {
   get specialty() {
     return this.registerForm.controls['specialty'];
   }
-  // getLocation(): Promise<any> {
-  //   return new Promise((resolve, reject) => {
-  //     if ('geolocation' in navigator) {
-  //       navigator.geolocation.getCurrentPosition(
-  //         (position) => {
-  //           resolve({
-  //             lat: position.coords.latitude,
-  //             lng: position.coords.longitude
-
-  //           });
-  //         },
-  //         (error) => {
-  //           reject(error);
-  //         }
-  //       );
-  //     } else {
-  //       reject('Geolocation is not supported by this browser.');
-  //     }
-  //   });}
 
   submitDetails() {
     const postData = { ...this.registerForm.value };
     this.authService.registerDoctor(postData as register).subscribe(
       response => {
-        if (response!=null) { // Check if the response is successful
+        if (response) {
           console.log('Doctor registered successfully!');
-
           this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Doctor registered successfully' });
           this.router.navigate(['/login']);
         } else {
           console.log('Unexpected response:', response);
-          this.messageService.add({ severity: 'error', summary: 'sorryyy', detail: 'Something went wrong the email or password is used' });
+          this.messageService.add({ severity: 'error', summary: 'Sorry', detail: 'Something went wrong. The email or password is used.' });
         }
       },
       error => {
@@ -90,5 +89,4 @@ export class RegisterComponent {
       }
     );
   }
-
-  }
+}

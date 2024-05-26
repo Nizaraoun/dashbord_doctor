@@ -12,6 +12,10 @@ import { PatientProfileComponent } from './components/pages/patient-profile/pati
 import { CalendarComponent } from './components/pages/calendar/calendar.component';
 import { Page404Component } from './components/pages/errors/page-404/page-404.component';
 import {  PostComponent } from './components/pages/post/post.component';
+import { PatientComponent } from './components/pages/patient/patient.component';
+import { bookingslistComponent } from './components/pages/bookings-list/bookings-list.component';
+import { DoctorEditeProfileComponent } from './components/pages/doctor-edite-profile/doctor-edite-profile.component';
+import { SubscriptionComponent } from './components/pages/subscription/subscription.component';
 
 const routes: Routes = [
   {
@@ -51,7 +55,7 @@ const routes: Routes = [
     component: DoctorProfileComponent,
   },
   {
-    path: "patientprofile",
+    path: "patient",
     component: PatientProfileComponent,
   },
   {
@@ -63,10 +67,26 @@ const routes: Routes = [
     component: EditPatientProfilComponent,
   },
   {
+    path: "patientprofiles",
+    component: PatientComponent,
+  },
+  {
+    path: "managebookings",
+    component: bookingslistComponent,
+  },
+  {
     path:"post",
     component: PostComponent,
   },
+{
+    path: 'editdoctorprofile',
+    component: DoctorEditeProfileComponent,
+},
 
+{
+    path:'subscription',
+    component:   SubscriptionComponent
+},
 
   {
     path: '', 
