@@ -7,7 +7,7 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ChatComponent } from './components/pages/chat/chat.component';
 import { DoctorProfileComponent } from './components/pages/doctor-profile/doctor-profile.component';
-import { EditPatientProfilComponent } from './components/pages/edit-patient-profil/edit-patient-profil.component';
+import { AddPatientProfilComponent } from './components/pages/add-patient-profil/add-patient-profil.component';
 import { PatientProfileComponent } from './components/pages/patient-profile/patient-profile.component';
 import { CalendarComponent } from './components/pages/calendar/calendar.component';
 import { Page404Component } from './components/pages/errors/page-404/page-404.component';
@@ -16,6 +16,7 @@ import { PatientComponent } from './components/pages/patient/patient.component';
 import { bookingslistComponent } from './components/pages/bookings-list/bookings-list.component';
 import { DoctorEditeProfileComponent } from './components/pages/doctor-edite-profile/doctor-edite-profile.component';
 import { SubscriptionComponent } from './components/pages/subscription/subscription.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
   {
@@ -64,7 +65,7 @@ const routes: Routes = [
   },
   {
     path: "editpatientprofile",
-    component: EditPatientProfilComponent,
+    component: AddPatientProfilComponent,
   },
   {
     path: "patientprofiles",
@@ -87,9 +88,12 @@ const routes: Routes = [
     path:'subscription',
     component:   SubscriptionComponent
 },
-
+{
+    path: 'privacy',
+    component: PrivacyPolicyComponent,
+},
   {
-    path: '', 
+    path: '',
     redirectTo: 'dashboard/home', 
     pathMatch: 'full'
   }

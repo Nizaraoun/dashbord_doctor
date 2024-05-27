@@ -7,6 +7,8 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+
 .input-feed {
     display: flex;
     justify-content: center;
@@ -64,6 +66,8 @@
 
     .author-details {
         flex: 1;
+        flex-direction: column;
+
     }
 
     .author-name {
@@ -75,6 +79,10 @@
     .post-time {
         color: #666;
         margin-left: 8px ;
+        font-size: 0.9em; /* Adjust as needed */
+        color: gray; /* Adjust color as needed */
+        margin-top: 2px; /* Adjust spacing as needed */
+    
     }
 
     .post-options {
@@ -87,12 +95,12 @@
 }
 
 .post-content {
-    margin-bottom: 12px;
+    margin-bottom: 25px;
 
     p {
-        margin-bottom: 8px;
-        color: #555;
-    }
+        margin-bottom: 15px;
+        color: #111111;
+    } 
 
 
 }
@@ -103,17 +111,22 @@
     padding: 8px;
 
     .action-button {
-        background: none;
+        background: #606770;;
         border: none;
-        color: #666;
-        margin-right: 16px;
+        color: #606770;;
+        margin-right: 25px;
         cursor: pointer;
 
         i {
             margin-right: 4px;
+            color: #555; 
+            background-color: #555;
+            size: 20px ;
+
         }
+
     }
-    .post-container {
+ .post-container {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: max(0px, min(16px, calc((100vw - 4px - 100%) * 9999))) / 16px;
@@ -128,9 +141,9 @@
 
 .post-header {
   display: flex;
-  align-items: center;
   margin-bottom: 16px;
 }
+
 
 .avatar-container {
   margin-right: 12px;
@@ -176,6 +189,11 @@
     padding: 10px;
     border-radius: 5px;
     width: 400px;
+}
+.user-details {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
 }
 
 .post-header {
@@ -320,4 +338,32 @@
   .action-icon {
     margin-right: 8px;
   }
-  
+  .thin-divider {
+    height: 0.5px;
+    background-color: #e0e0e0; /* or any other desired color */
+}
+
+.custom-divider {
+  border: none;
+  border-top: 1px solid #000; /* Customize the color and thickness */
+  margin: 10px 0; /* Customize the spacing */
+}author-details
+.comment-details {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+
+}
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}

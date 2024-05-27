@@ -4,8 +4,13 @@ import { NavbarComponent } from '../../navbar/navbar.component';
 import { SidenavComponent } from '../../sidenav/sidenav.component';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
-import { RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';  
 import { Component } from '@angular/core';
+import { Feed } from 'src/app/interfaces/feed';
+import { FeedService } from 'src/app/services/feed.service';
+import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'hospital-post',
@@ -18,15 +23,37 @@ import { Component } from '@angular/core';
     NavbarComponent,
     HighchartsChartModule,
     CommonModule, // Import CommonModule here
+    MatListModule,
+     MatDividerModule,
+     FormsModule  // <-- Add FormsModule to the imports array
 
 ]
 })
 export class PostComponent {
-  constructor(public dialog: MatDialog) {}
+
+  token: string | null = '';
+  feed: Feed[] = [];
+  newComment: string;
+
+  ngOnInit(): void {
+    console.log('ngOnInit');
+    this. token = localStorage.getItem('accessToken');
+
+    this.feedService.Post$.subscribe((data: Feed[]) => {
+      this.feed = data;
+    });
+  }
+
+
+  constructor(public dialog: MatDialog
+    ,private       feedService: FeedService
+
+  ) {}
   adjustTextArea(event: any) {
     const textArea = event.target;
     textArea.style.height = 'auto';
     textArea.style.height = textArea.scrollHeight + 'px';
+    
   }
 
   copyLink() {
@@ -48,10 +75,9 @@ export class PostComponent {
     });
   }
 }
-
 @Component({
   selector: 'dialog-content-example-dialog',
-  templateUrl: './dialog-content-example-dialog.html',
+  templateUrl: 'dialog-content-example-dialog.html',
   standalone: true,
   imports: [MatDialogModule, MatButtonModule],
 })

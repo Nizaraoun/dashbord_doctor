@@ -12,16 +12,31 @@
         <div class="list_general">
           <ul>
             
-            <li *ngFor="let bookmark of bookmarks">
-              <figure><img [src]="bookmark.img" alt=""></figure>
-              <small>{{ bookmark.category }}</small>
-              <h4>{{ bookmark.name }}</h4>
-              <p>{{ bookmark.address }}<br></p>
-              <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-user"></i> View profile</a></p>
-              <!-- <ul class="buttons">
-                <li><a href="#0" class="btn_1 gray delete wishlist_close" ><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
-              </ul> -->
+            <li *ngFor="let bookmark of userdetails">
+              <figure><img [src]="bookmark.image" alt=""></figure>
+              <h4>
+                <i class="fa fa-fw fa-user"></i> {{ bookmark.email }}
+              </h4>
+              <small>
+                <i class="fa fa-fw fa-phone"></i> {{ bookmark.phone }}
+              </small>
+              <p>
+                <i class="fa fa-fw fa-envelope"></i> {{ bookmark.username }}
+              </p>
+              <p>
+                <a href="#0" class="btn_1 gray">
+                  <i class="fa fa-fw fa-user"></i> View profile
+                </a>
+              </p>
+              <ul class="buttons">
+                <li>
+                  <a href="#0" class="btn_1 gray delete wishlist_close">
+                    <i class="fa fa-fw fa-times-circle-o"></i> Cancel
+                  </a>
+                </li>
+              </ul>
             </li>
+            
           </ul>
         </div>
       </div>

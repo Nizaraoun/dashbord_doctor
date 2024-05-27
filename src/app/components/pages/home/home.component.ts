@@ -72,7 +72,7 @@ specilaityOptions = filterOptions;
     this.followers = Number(localStorage.getItem('followers')) || 0;
 
     // Assuming appointmentDTO is of type AppointmentDTO[]
-  this.patient.getAllPatients( this.Token).subscribe((data: appointmentDTO[]) => {
+  this.patient.getAllPatientsReservation( this.Token).subscribe((data: appointmentDTO[]) => {
     this.appointments = data;
     this.appointmentService.setAppointments(data); // Set appointments in the service
 
@@ -84,7 +84,7 @@ specilaityOptions = filterOptions;
       data[i].senderImg = 'data:image/png;base64,' +data[i].senderImg;
 
       if (data[i].senderName === null) {
-        data[i].senderName = "مجهول الهوية";
+        data[i].senderName = "Membre anonyme";
         data[i].senderImg = 'assets/images/user/10.jpg';
       }
 
@@ -92,6 +92,7 @@ specilaityOptions = filterOptions;
   }     
   
    this.feed = data; 
+   this.FeedService.setPost(data); // Set posts in the service
 
 
   });}

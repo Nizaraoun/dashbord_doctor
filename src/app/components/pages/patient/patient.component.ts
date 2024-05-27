@@ -3,7 +3,9 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { NavbarComponent } from '../../navbar/navbar.component';
 import { SidenavComponent } from '../../sidenav/sidenav.component';
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { PatientService } from 'src/app/services/patient.service';
+import { patientDTO } from 'src/app/interfaces/patientDTO';
 
 interface Bookmark {
   img: string;
@@ -34,10 +36,35 @@ export class PatientComponent implements OnInit {
   currentPage: number = 1;
   totalPages: number = 3;
   pages: number[] = [1, 2, 3];
+  Token: string = '';
+  id: string = '';
+  userdetails:patientDTO[] = [];
 
-  constructor() {}
 
-  ngOnInit(): void {}
+  constructor(private patient: PatientService,    private router: Router,
+  ) {}
+
+  ngOnInit(): void {
+    this.Token = localStorage.getItem('accessToken') || '';
+    this.id = localStorage.getItem('id') || '';
+    this.patient.getAllPatient(this.Token,this. id).subscribe((data : patientDTO[]) => {
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].image != null){
+          data[i].image = 'data:image/png;base64,' +data[i].image;
+
+        }
+        else
+        data[i].image = 'assets/images/user/10.jpg'
+
+      }
+      this.userdetails = data;
+    } , (error) => {
+      this.router.navigate(['/401']);
+
+    });
+
+    
+  }
 
   sortBookmarks(): void {
     if (this.orderBy === 'latest') {
