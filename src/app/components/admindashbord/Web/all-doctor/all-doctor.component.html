@@ -1,0 +1,55 @@
+<div class="wrapper">
+    <admin-sidbar class="iq-sidebar"></admin-sidbar>
+    <div id="content-page" class="content-page">
+        <admin-navbar></admin-navbar>
+        <!-- grid -->
+        <div class="header_box">
+          <div class="row m-t-40">
+            <div class="col-sm-9">
+              <h2 class="d-inline-block">Doctor List</h2>
+            </div>
+            <div class="col-sm-3">
+              <form >
+                <div class="form-group">
+                  <input type="text" class="form-control" id="secret-key" [(ngModel)]="serch" name="secretKey" placeholder="Entre the name of patient ">
+                </div>
+              </form>  
+            </div>
+        </div>
+        <div class="doctor-list">
+            <div class="doctor-card" *ngFor="let doctor of doctors">
+              <div class="box_list wow fadeIn">
+                <!-- <a href="#0" class="wish_bt"></a> -->
+                <figure>
+                  <a href="detail-page.html">
+                    <img [src]="doctor.image" class="img-fluid" alt="">
+                  </a>
+                </figure>
+                <div class="wrapper">
+                  <small>{{doctor.speciality}}</small>
+                  <h3>Nizar Aoun</h3>
+                  <p>{{doctor.bio}}</p>
+                  <span class="rating">
+                    <i class="fa fa-fw fa-star yellow"></i>
+                    <i class="fa fa-fw fa-star yellow"></i>
+                    <i class="fa fa-fw fa-star yellow"></i>
+                    <i class="fa fa-fw fa-star yellow"></i>
+                    <i class="fa fa-fw fa-star"></i>
+                </span>
+                  <span class="rating">
+                    <small>Rating  ({{doctor.rating}})</small>
+                  </span>
+                  <a href="badges.html" data-bs-toggle="tooltip" data-bs-placement="top" 
+                     title="Badge Level" class="badge_list_1">
+                    <img src="assets/imgs/badges/badge_4.svg" width="15" height="15" alt="">
+                  </a>
+                </div>
+                <ul>
+                  <li><a href="#0" onclick="onHtmlClick('Doctors', 1)"><i class="icon_pin_alt"></i>View on map</a></li>
+                  <li><a [href]="doctor.phone" target="_blank"><i class="icon_pin_alt"></i>Directions</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>

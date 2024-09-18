@@ -1,0 +1,71 @@
+<div class="wrapper">
+    <admin-sidbar class="iq-sidebar"></admin-sidbar>
+    <div id="content-page" class="content-page">
+        <admin-navbar></admin-navbar>
+        <!-- grid -->
+
+        <div class="container-fluid">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item active">Reviews</li>
+            </ol>
+            <div class="box_general">
+                <div class="header_box">
+                    <h2 class="d-inline-block">Reviews List</h2>
+                    <div class="filter">
+                        <select name="orderby" class="selectbox">
+                            <option value="Any time">Any time</option>
+                            <option value="Latest">Latest</option>
+                            <option value="Oldest">Oldest</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="list_general reviews" >
+                    <ul *ngFor="let report of Reports">
+                        <li>
+                            <span>{{report.date}}</span>
+                            <span class="rating">
+                                <i class="fa fa-fw fa-star yellow"></i>
+                                <i class="fa fa-fw fa-star yellow"></i>
+                                <i class="fa fa-fw fa-star yellow"></i>
+                                <i class="fa fa-fw fa-star yellow"></i>
+                                <i class="fa fa-fw fa-star"></i>
+                            </span>
+                            <figure><img [src]="report.senderimage" alt=""></figure>
+                            <h4>{{report.sendername}}</h4>
+                            <p>{{report.report}}</p>
+                            <p class="inline-popups">
+                                <button (click)="openReplyModal( report.id)" class="btn_1 gray">
+                                    <i class="fa fa-fw fa-reply"></i> Reply to this review
+                                </button>
+                            </p>
+                        </li>
+                        <!-- Repeat for other reviews -->
+                    </ul>
+                </div>
+            </div>
+            <!-- /box_general-->
+        </div>
+        <!-- /.container-fluid-->
+    </div>
+    <!-- /.content-wrapper-->
+</div>
+<!-- /#wrapper-->
+<!-- Modal -->
+<div id="modal-reply" class="modal" [ngClass]="{'mfp-hide': !isModalVisible}">
+    <div class="modal-content">
+        <div class="small-dialog-header">
+            <h3>Reply to review</h3>
+        </div>
+        <div class="message-reply margin-top-20">
+            <div class="form-group">
+                <textarea cols="40" rows="3" class="form-control" [(ngModel)]="replyText"></textarea>
+            </div>
+            <button class="btn_1" (click)="closeAndReply()">Reply</button>
+            <button class="btn_2" (click)="close()">Cancel</button>
+        </div>
+    </div>
+</div>

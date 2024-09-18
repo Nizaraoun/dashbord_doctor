@@ -7,13 +7,14 @@
 <!-- loader END -->
 <!-- Wrapper Start -->
 <div class="wrapper">
-    <hospital-sidenav class="iq-sidebar" />
+    <hospital-sidenav class="iq-sidebar" ></hospital-sidenav>   
 
     <!-- Page Content  -->
     <div id="content-page" class="content-page">
-        <hospital-navbar />
+       <hospital-navbar></hospital-navbar>
         <div class="container-fluid">
             <div class="row">
+                
                 <div class="col-sm-12">
                     <div class="row">
                         <!-- 1 -->
@@ -24,8 +25,8 @@
                                         <span class="bg-primary" data-percent="70"></span>
                                     </div>
                                     <span class="line-height-4">Number Of Patients</span>
-                                    <h4 class="mb-2 mt-2">13</h4>
-                                    <p class="mb-0 text-secondary line-height">Ongoing treatment</p>
+                                    <h4 class="mb-2 mt-2">{{patientcount}}</h4>
+                                    <p class="mb-0 text-secondary line-height">Patients </p>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +82,7 @@
                                     <h4><b>{{Username}}</b></h4>
                                     <p>Docteur Houda Habib, Medecin chirurgien cardio-vasculaire et thoracique
                                     </p>
-                                    <a routerLink="#" class="btn btn-primary">Add Post</a>
+                                    <a  (click)="navigateToAllPosts()" class="btn btn-primary">Add Post</a>
                                 </div>
                                 <hr>
                                 <ul class="doctoe-sedual d-flex align-items-center justify-content-between p-0">
@@ -128,13 +129,15 @@
           <div class="post-actions">
 
               <button class="action-button comment-button">
-                <i class="fa fa-comments p-2"></i> <!-- Add mr-2 class here -->
-                Comment
+                {{ post.commentCount }}
+
+                <i class="fa fa-comments p-1"></i> <!-- Add mr-2 class here -->
               </button>
+            
+              <br>
+              <br>
 
-                            
-
-     
+    
           </div>
         </div>
         <!-- Button to navigate to full post list page -->
@@ -229,7 +232,7 @@
                                 <li *ngFor="let doctor of doctor" class="d-flex mb-4 align-items-center">
                                     <div class="user-img img-fluid"><img [src]="doctor.image"  alt="story-img" class="rounded-circle avatar-40"></div>
                                     <div class="media-support-info ms-3">
-                                        <h6>{{ doctor.username }}</h6>
+                                        <h6>{{ doctor.email }}</h6>
                                         <p class="mb-0 font-size-12">{{ doctor.speciality }}</p>
                                     </div>
                             

@@ -24,14 +24,18 @@
                 <i class="fa fa-fw fa-envelope"></i> {{ bookmark.username }}
               </p>
               <p>
-                <a href="#0" class="btn_1 gray">
+                <a (click)="navigateToProfile(
+                  bookmark
+                )" class="btn_1 gray">
                   <i class="fa fa-fw fa-user"></i> View profile
                 </a>
               </p>
               <ul class="buttons">
                 <li>
-                  <a href="#0" class="btn_1 gray delete wishlist_close">
-                    <i class="fa fa-fw fa-times-circle-o"></i> Cancel
+                  <a (click)="deletPatient(
+                    bookmark.id
+                  )" class="btn_1 gray delete wishlist_close">
+                    <i class="fa fa-fw fa-times-circle-o"></i> delete
                   </a>
                 </li>
               </ul>

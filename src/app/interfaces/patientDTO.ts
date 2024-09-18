@@ -3,6 +3,8 @@ export interface patientDTO{
     email : string;
     username   : string;
     image : string;
-    id : String;
+    id : string;
+    dateOfBirth : string;
+    
     
 }

@@ -1,0 +1,61 @@
+<div class="wrapper">
+    <hospital-sidenav class="iq-sidebar" />
+        <div id="content-page" class="content-page">
+   <hospital-navbar />
+
+   <div class="cc">
+
+    <div class="cc__card">
+      <div class="cc__logo">
+        <svg viewBox="0 0 35.31 24" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#e60019" stroke-width="0" d="m12 24-12-12 12-12 5.66 5.66-6.34 6.34 6.34 6.34-5.66 5.66z" />
+          <path fill="#f69f24" stroke-width="0"
+                d="m23.31 0 12 12-12 12-5.66-5.66 6.34-6.34-6.34-6.34 5.66-5.66z" />
+          <rect fill="#f85c1d" stroke-width="0" transform="translate(-3.31 16) rotate(-45)" x="13.17" y="7.52"
+                width="8.97" height="8.97" />
+        </svg>
+      </div>
+      <div class="cc__cardgroup cc__cardgroup--wide">
+        <div class="cc__card-label">Card Number</div>
+        <div class="cc__card-value cc__card-value--large">{{ fields.cardnumber }}</div>
+      </div>
+      <div class="cc__cardgroup">
+        <div class="cc__card-label">Cardholder</div>
+        <div class="cc__card-value">{{ fields.cardholder }}</div>
+      </div>
+      <div class="cc__cardgroup">
+        <div class="cc__card-label">Expires</div>
+        <div class="cc__card-value">{{ fields.exp }}</div>
+      </div>
+      <div class="cc__cardgroup">
+        <div class="cc__card-label">CVV</div>
+        <div class="cc__card-value">{{ fields.cvc }}</div>
+      </div>
+    </div>
+  
+    <form class="cc__form" (submit)="onSubmit()" (keyup)="validate()">
+      <fieldset>
+        <legend>Payment Details</legend>
+        <div class="fieldgroup">
+          <label for="card-number">Card Number</label>
+          <input id="card-number" type="text" tabindex="1" [(ngModel)]="fields.cardnumber" name="cardnumber" (keydown)="onKeyDown($event, 18)" (keyup)="fields.cardnumber = formatCardNumber(fields.cardnumber)" />
+        </div>
+        <div class="fieldgroup">
+          <label for="cardholder">Cardholder</label>
+          <input id="cardholder" type="text" tabindex="2" [(ngModel)]="fields.cardholder" name="cardholder" (keydown)="onKeyDown($event, 24)" />
+        </div>
+        <div class="fieldgroup fieldgroup--half">
+          <label for="card-exp">Expires</label>
+          <input id="card-exp" type="text" placeholder="MM/YY" tabindex="3" [(ngModel)]="fields.exp" name="exp" (keydown)="onKeyDown($event, 4)" (keyup)="fields.exp = formatExp(fields.exp)" />
+        </div>
+        <div class="fieldgroup fieldgroup--half">
+          <label for="card-cvc">CVV</label>
+          <input id="card-cvc" type="text" tabindex="4" [(ngModel)]="fields.cvc" name="cvc" (keydown)="onKeyDown($event, 2)" />
+        </div>
+        <input class="button" type="submit" value="Add Card" tabindex="5" [disabled]="!valid" />
+      </fieldset>
+    </form>
+  
+  </div>
+</div>
+</div>

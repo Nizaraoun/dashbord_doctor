@@ -48,6 +48,10 @@ input::placeholder {
   flex-direction: column;
   align-items: flex-start;
 }
+.spacer {
+  flex-grow: 5;
+
+}
 
 .media {
   display: flex;
@@ -61,6 +65,7 @@ input::placeholder {
 .media-body {
   flex: 1;
 }
+
 
 .w-50 {
   width: 50%;

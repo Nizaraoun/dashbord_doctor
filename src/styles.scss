@@ -1,13 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
-@import 'bootstrap/scss/bootstrap.scss';
-@import 'bootstrap/scss/bootstrap-grid.scss';
+@import "primeicons/primeicons.css";
+@import "primeng/resources/themes/saga-blue/theme.css";
+@import "primeng/resources/primeng.min.css";
+html,body {
 
-body {
     margin: 0;
     width: 100%;
+    .no-underline {
+      text-decoration: none;
   }
+  
+  }
+  
+  

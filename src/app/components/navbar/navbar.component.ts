@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { co } from '@fullcalendar/core/internal-common';
 import { Router } from '@angular/router';
+import { baseUrl, imgDoctorurl } from '../constants/socketUrl';
 
 
 
@@ -26,7 +27,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.username = localStorage.getItem('username') || '';
     this.base64Image = localStorage.getItem('image') || '';
-    this.decodedImage = 'data:image/png;base64,' + atob(this.base64Image);
+    this.decodedImage = imgDoctorurl + this.base64Image;
   }
 
   logout(): void{

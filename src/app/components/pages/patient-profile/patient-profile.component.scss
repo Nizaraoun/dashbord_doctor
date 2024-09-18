@@ -1,11 +1,10 @@
 body {
     width: 100%;
-    background-color: #f9f9fa
-    
+    background-color: #f9f9fa;
 }
 
 .padding {
-    padding: 3rem !important
+    padding: 3rem !important;
 }
 
 .user-card-full {
@@ -33,7 +32,7 @@ body {
 }
 
 .bg-c-lite-green {
-        background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
+    background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
     background: linear-gradient(to right, #ee5a6f, #f29263);
 }
 
@@ -53,8 +52,6 @@ body {
     border-radius: 5px;
 }
 
-
- 
 h6 {
     font-size: 14px;
 }
@@ -62,11 +59,23 @@ h6 {
 .card .card-block p {
     line-height: 25px;
 }
+.img-fluid {
+    max-width: 100%;
+    height: auto;
 
-@media only screen and (min-width: 1400px){
-p {
-    font-size: 14px;
+    border-radius: 15px ;
 }
+.img-fluid:hover{
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+            
+
+
+  }
+@media only screen and (min-width: 1400px) {
+    p {
+        font-size: 14px;
+    }
 }
 
 .card-block {
@@ -85,10 +94,6 @@ p {
     padding-bottom: 5px !important;
 }
 
-.card .card-block p {
-    line-height: 25px;
-}
-
 .m-b-10 {
     margin-bottom: 10px;
 }
@@ -97,28 +102,8 @@ p {
     color: #919aa3 !important;
 }
 
-.b-b-default {
-    border-bottom: 1px solid #e0e0e0;
-}
-
 .f-w-600 {
     font-weight: 600;
-}
-
-.m-b-20 {
-    margin-bottom: 20px;
-}
-
-.m-t-40 {
-    margin-top: 20px;
-}
-
-.p-b-5 {
-    padding-bottom: 5px !important;
-}
-
-.m-b-10 {
-    margin-bottom: 10px;
 }
 
 .m-t-40 {
@@ -136,4 +121,55 @@ p {
     transition: all 0.3s ease-in-out;
 }
 
+/* New CSS for the larger information section */
+.col-xl-8 {
+    max-width: 80%; /* Adjust the width as needed */
+}
 
+.user-card-full .col-sm-8 {
+    flex: 0 0 66.666667%; /* Adjust the width of the information section */
+    max-width: 66.666667%; /* Adjust the width of the information section */
+}
+
+.user-card-full .col-sm-4 {
+    flex: 0 0 33.333333%; /* Adjust the width of the profile section */
+    max-width: 33.333333%; /* Adjust the width of the profile section */
+}
+
+@media (min-width: 1200px) {
+    .col-xl-8 {
+        max-width: 66.666667%; /* Adjust the width for larger screens */
+    }
+}
+.form-group {
+    margin-bottom: 15px;
+    .form-control {
+      height: 50px;
+      font-size: 16px;
+      width: 40%;
+        margin-top: 10px;
+        border-radius: 15px ;
+        color: #495057; 
+        background-color: #d5cece;
+
+    }
+  }
+  
+  #secret-key, #medical-document {
+    margin-bottom: 10px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  .m-t-40 {
+    margin-top: 40px;
+  }
+  

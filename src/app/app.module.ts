@@ -16,13 +16,22 @@ import { MessageService } from 'primeng/api';
 import { HomeComponent } from './components/pages/home/home.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { MatIconModule } from '@angular/material/icon';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
 @NgModule({ declarations: [
         AppComponent,
         LoginComponent,
         RegisterComponent,
     ],
-    bootstrap: [AppComponent], imports: [DropdownModule, // Add PrimeNG DropdownModule here
+    bootstrap: [AppComponent], 
+    imports:
+        [
+        DropdownModule, // Add PrimeNG DropdownModule here
         BrowserModule,
         AppRoutingModule,
         CardModule,
@@ -31,5 +40,16 @@ import { MatIconModule } from '@angular/material/icon';
         ButtonModule,
         FormsModule, // Add this line
         ToastModule,
-        BrowserAnimationsModule], providers: [MessageService, provideHttpClient(withInterceptorsFromDi())] })
+        NgbModule,
+        MatIconModule,
+        MatMenuModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatListModule,
+        BrowserAnimationsModule,
+  
+    ], providers: [MessageService, provideHttpClient(withInterceptorsFromDi())
+        ,provideCharts(withDefaultRegisterables())
+
+    ] })
 export class AppModule { }

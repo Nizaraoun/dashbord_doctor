@@ -11,6 +11,8 @@ import { FeedService } from 'src/app/services/feed.service';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { FormsModule } from '@angular/forms';
+import { co } from '@fullcalendar/core/internal-common';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'hospital-post',
@@ -27,33 +29,63 @@ import { FormsModule } from '@angular/forms';
      MatDividerModule,
      FormsModule  // <-- Add FormsModule to the imports array
 
+
 ]
 })
 export class PostComponent {
 
   token: string | null = '';
   feed: Feed[] = [];
+  addfeed: Feed;
   newComment: string;
+  id: string = '';
+  postContent: string = ''; // Bound to the textarea
+  submittedPost: string | null = null; // To store the submitted post
 
   ngOnInit(): void {
     console.log('ngOnInit');
     this. token = localStorage.getItem('accessToken');
+    this.id = localStorage.getItem('id') || '';
+
 
     this.feedService.Post$.subscribe((data: Feed[]) => {
       this.feed = data;
     });
   }
+  addPost() {
+    this.addfeed = {  
+      postId: this.feed.length+1,
+      content: this.postContent,
+      userId: this.id,
+      commentContent:"",
+      commentId:"",
+      anonymous:null,
+      createdAt:null,
+      role:"doctor",
+      senderImg:null,
+      commentCount:null,
+      senderName:null,
+    };
+    console.log(this.postContent);
+    this.feedService.AddPost(this.addfeed ,this.token!).subscribe((data: Feed[]) => {
+      this.feed = data;
+      this.postContent = '';
+      this.msgService.add({ severity: 'success', summary: 'Success', detail: 'Post added successfully' });
+    }
+    );
+  }
 
 
   constructor(public dialog: MatDialog
-    ,private       feedService: FeedService
+    ,private       feedService: FeedService,
+    private msgService: MessageService
+
 
   ) {}
   adjustTextArea(event: any) {
     const textArea = event.target;
     textArea.style.height = 'auto';
-    textArea.style.height = textArea.scrollHeight + 'px';
-    
+    textArea.style.height = textArea.scrollHeight + 'px';    
   }
 
   copyLink() {

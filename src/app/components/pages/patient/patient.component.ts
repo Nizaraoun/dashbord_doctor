@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { PatientService } from 'src/app/services/patient.service';
 import { patientDTO } from 'src/app/interfaces/patientDTO';
+import { imgDoctorurl, imgUserurl } from '../../constants/socketUrl';
 
 interface Bookmark {
   img: string;
@@ -27,11 +28,12 @@ interface Bookmark {
     CommonModule,]
 })
 export class PatientComponent implements OnInit {
-  bookmarks: Bookmark[] = [
-    { img: 'assets/images/user/10.jpg', category: 'Primary care - Internist', name: 'Dr. Julia Jhones', address: '2726 Shinn Street, New York' },
-    { img: 'assets/images/user/10.jpg', category: 'Primary care - Internist', name: 'Dr. Mark Schumaker', address: '2726 Shinn Street, New York' },
-    { img: 'assets/images/user/10.jpg', category: 'Primary care - Internist', name: 'Dr. Lucas George', address: '2726 Shinn Street, New York' }
-  ];
+deletPatient(
+  id: string,
+) {
+this.userdetails = this.userdetails.filter((patient) => patient.id !== id);
+}
+
   orderBy: string = 'any';
   currentPage: number = 1;
   totalPages: number = 3;
@@ -49,15 +51,17 @@ export class PatientComponent implements OnInit {
     this.id = localStorage.getItem('id') || '';
     this.patient.getAllPatient(this.Token,this. id).subscribe((data : patientDTO[]) => {
       for (let i = 0; i < data.length; i++) {
-        if (data[i].image != null){
-          data[i].image = 'data:image/png;base64,' +data[i].image;
+        if (data[i].image != "default.jpg"){
+          data[i].image = imgUserurl+data[i].image;
 
         }
         else
-        data[i].image = 'assets/images/user/10.jpg'
+        data[i].image = 'assets/images/user/userimage.png'
 
       }
       this.userdetails = data;
+      
+
     } , (error) => {
       this.router.navigate(['/401']);
 
@@ -65,18 +69,23 @@ export class PatientComponent implements OnInit {
 
     
   }
+  navigateToProfile(bookmark: patientDTO): void {
 
-  sortBookmarks(): void {
-    if (this.orderBy === 'latest') {
-      this.bookmarks.sort((a, b) => b.name.localeCompare(a.name));
-    } else if (this.orderBy === 'oldest') {
-      this.bookmarks.sort((a, b) => a.name.localeCompare(b.name));
-    }
+    this.patient.setPatient(bookmark );
+    this.router.navigate(['/patient']);
   }
 
-  removeBookmark(bookmark: Bookmark): void {
-    this.bookmarks = this.bookmarks.filter(b => b !== bookmark);
-  }
+  // sortBookmarks(): void {
+  //   if (this.orderBy === 'latest') {
+  //     this.bookmarks.sort((a, b) => b.name.localeCompare(a.name));
+  //   } else if (this.orderBy === 'oldest') {
+  //     this.bookmarks.sort((a, b) => a.name.localeCompare(b.name));
+  //   }
+  // }
+
+  // removeBookmark(bookmark: Bookmark): void {
+  //   this.bookmarks = this.bookmarks.filter(b => b !== bookmark);
+  // }
 
   changePage(page: number): void {
     if (page > 0 && page <= this.totalPages) {

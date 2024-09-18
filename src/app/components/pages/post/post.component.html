@@ -7,18 +7,21 @@
                 <div class="avatar-container">
                     <img src="assets/images/page-img/300.png" alt="User Avatar" class="avatar" />
                 </div>
-                <div class="create-post">
-                    <h3 class="post-title">Create a Post</h3>
-                    <div class="input-container">
-                        <textarea
-                            class="post-input"
-                            placeholder="Write something..."
-                            rows="1.5"
-                            cols="50"
-                            (input)="adjustTextArea($event)"
-                        ></textarea>
-                        <i class="fa fa-share-square-o blue-icon" aria-hidden="true"></i>
-                    </div>
+<!-- app.component.html -->
+<div class="create-post">
+    <h3 class="post-title">Create a Post</h3>
+    <div class="input-container">
+      <textarea
+        class="post-input"
+        placeholder="Write something..."
+        rows="1.5"
+        cols="50"
+        [(ngModel)]="postContent"
+        (input)="adjustTextArea($event)"
+      ></textarea>
+      <i (click)="addPost()" class="fa fa-share-square-o blue-icon" aria-hidden="true"></i>
+    </div>
+  
                 </div>
             </div>
         </div>

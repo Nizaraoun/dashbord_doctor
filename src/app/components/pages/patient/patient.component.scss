@@ -28,7 +28,9 @@ Author URI: http://themeforest.net/user/Ansonika/
 html {
     position: relative;
     min-height: 100%;
+    width: 100% ;
   }
+
   
   body {
     overflow-x: hidden;
@@ -467,10 +469,12 @@ html {
     font-family: "Poppins", Helvetica, sans-serif;
     font-size: 14px;
     font-size: 0.875rem;
+    width: 100% !important;
   }
   
   .content-wrapper {
     background: #f8f8f8;
+    
   }
   
   h1,

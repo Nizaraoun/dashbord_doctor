@@ -1,0 +1,48 @@
+
+<div class="wrapper">
+    <admin-sidbar class="iq-sidebar"></admin-sidbar>
+    <div id="content-page" class="content-page">
+        <admin-navbar></admin-navbar>
+        <div class="box_general">
+        <div class="header_box">
+            <h2 class="d-inline-block">New Doctor List</h2>
+          
+        </div>
+        
+        <div class="list_general">
+            <ul>
+                <li *ngFor="let doctor of doctors">
+                    <figure><img src="assets/images/user/10.jpg" alt=""></figure>
+                    <h4>{{ doctor.email }}</h4>
+                    <ul class="booking_details">
+                        <li><strong>Email</strong> {{ doctor.username }}</li>
+                        <li><strong>speciality</strong> {{ doctor.speciality}}</li>
+
+                        <li><strong>Telephone</strong> {{ doctor.phone }}</li>
+                        <li><strong>creation Date</strong> {{ doctor.creationDate }}</li>
+                    </ul>
+                    <ul class="buttons">
+                        <li><a (click)="approuverdoctor(doctor.id)" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approuver</a></li>
+                        <li><a  (click)="desapprouverdoctor(doctor.id) " class="btn_1 gray delete"><i class="fa-solid fa-xmark"></i> Desapprouver</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <nav aria-label="...">
+        <ul class="pagination pagination-sm add_bottom_30">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+ 
+

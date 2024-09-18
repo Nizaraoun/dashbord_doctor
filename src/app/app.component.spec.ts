@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { beforeEach, describe, it } from 'node:test';
 
 describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
@@ -27,3 +28,7 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('.content span')?.textContent).toContain('angular-primeng-app app is running!');
   });
 });
+function expect(app: AppComponent) {
+  throw new Error('Function not implemented.');
+}
+

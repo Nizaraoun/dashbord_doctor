@@ -32,9 +32,7 @@ export class ChatService {
     });
 
     const body = { conversationId: chatId };
-        console.log(token);
 
-    console.log(body);
     const url = `http://localhost:8080/api/Get_Message`;
 
     return this.http.post<any>(url, body, { headers: headers ,responseType : 'text' as 'json'});

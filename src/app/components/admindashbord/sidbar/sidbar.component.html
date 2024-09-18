@@ -1,0 +1,59 @@
+<aside class="sidebar shadow-sm">
+  <div class="sidebar-profile d-flex flex-column justify-content-center pt-5 pb-3">
+      <div class="picture-wrapper mb-4 mt-3">
+          <div class="user-picture m-auto">
+              <img src="assets/images/user/userimage.png" alt="lightning logo" width="35px">
+          </div>
+      </div>
+      <div class="profile-details text-center pb-2">
+          <p class="mb-0 text-uppercase name">Nizar AOUN</p>
+          <small class="text-uppercase role">Administrator</small>
+      </div>
+  </div>
+  <!-- <div class="sidebar-search pt-1 pb-1 pl-3 pr-3">
+      <input type="search" class="form-control rounded-pill" name="search" placeholder="Search ...">
+  </div> -->
+  <nav class="sidebar-menu pt-1 pb-1">
+      <div id="sidebar-scrollbar">
+          <nav class="iq-sidebar-menu">
+              <ul class="iq-menu">
+                  <li class="active">
+                      <a routerLink="/admin-home" class="iq-waves-effect"><i class="ri-hospital-fill"></i><span>Dashboard Overview</span></a>
+                  </li>
+                  
+                  <li>
+                      <a routerLink="javascript:void(0);" class="iq-waves-effect">
+                          <i class="fa fa-laptop"></i><span>Web Dashboard</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                      <ul class="iq-submenu">
+                          <li><a routerLink="/admin-doctor-profiles"><i class="fa fa-user-md"></i>All Doctor</a></li>
+                          <li><a routerLink="/admin-newdoctor"><i class="fa fa-plus-circle"></i>New doctors</a></li>
+                          <li><a routerLink="/admin-web-report"><i class="fa fa-ban"></i> Report</a></li>
+                          <li><a routerLink="/admin-web-reviews"><i class="ri-profile-fill"></i>Reviews</a></li>
+                          <li><a routerLink="/admin-web-service"><i class="fa fa-cog"></i> Service</a></li>
+                      </ul>
+                  </li>
+                  <li>
+                      <a routerLink="javascript:void(0);" class="iq-waves-effect"><i class="ri-user-3-fill"></i><span>Mobile App</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                      <ul class="iq-submenu">
+                          <li><a routerLink="/admin-patient-profiles"><i class="fa fa-user"></i>All Patients</a></li>
+                          <li><a routerLink="/admin-app-report"><i class="fa fa-ban"></i> Reviews</a></li>
+                          <li><a routerLink="/admin-web-reviews"><i class="ri-profile-fill"></i>Reviews</a></li>
+                          <li><a routerLink="/admin-app-service"><i class="fa fa-cog"></i>Service</a></li>
+                      </ul>
+                  </li>
+                  <li>
+                      <a routerLink="/admin-app-report" class="iq-waves-effect"><i class="ri-file-text-fill"></i><span>Report</span></a> 
+                  </li>
+                  <!-- <li><a routerLink="/calendar" class="iq-waves-effect"><i class="ri-calendar-event-fill"></i><span>Calendar</span></a></li>
+                  <li><a routerLink="/chat" class="iq-waves-effect"><i class="ri-chat-4-fill"></i><span>Chat</span></a></li>
+                  <li><a routerLink="/post" class="iq-waves-effect"><i class="ri-file-text-fill"></i><span>Post</span></a> 
+                  </li>
+                  <li><a routerLink="/subscription" class="iq-waves-effect"><i class="fa fa-credit-card-alt"></i><span>Subscription</span></a> -->
+              </ul>
+          </nav>
+      </div>
+  </nav>
+  <div class="sidebar-logout d-flex justify-content-center pb-3">
+      <a (click)="logout()"  routerLink="/login" class="btn btn-danger iq-waves-effect"><i class="ri-logout-box-r-line"></i><span>Logout</span></a>
+  </div>
+</aside>

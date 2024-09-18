@@ -50,7 +50,6 @@ export class bookingslistComponent implements OnInit {
         this.appointmentService.appointments$.subscribe((data: appointmentDTO[]) => {
           this.appointments = data;
         });
-        console.log(this.appointments);
       }
       completeAppointment (appointmentId:number) :void {
         this.appointmentService.completeAppointment(appointmentId,this.token!).subscribe((data) => {

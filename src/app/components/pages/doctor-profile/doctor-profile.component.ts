@@ -1,7 +1,7 @@
 import { HighchartsChartModule } from "highcharts-angular";
 import { NavbarComponent } from "../../../components/navbar/navbar.component";
 import { SidenavComponent } from "../../../components/sidenav/sidenav.component";
-import { Username } from '../../constants/socketUrl';
+import { Username, imgDoctorurl } from '../../constants/socketUrl';
 import { Component, OnInit } from "@angular/core";
 import { RouterLink } from "@angular/router";
 
@@ -33,7 +33,7 @@ export class DoctorProfileComponent implements OnInit{
     this.phone = localStorage.getItem('phone') || '';
     this.email = localStorage.getItem('email') || '';
     this.base64Image = localStorage.getItem('image') || '';
-    this.decodedImage = 'data:image/png;base64,' + atob(this.base64Image);
+    this.decodedImage = imgDoctorurl + this.base64Image;
 
     // this.Birthday = localStorage.getItem('birthday') || '';
 

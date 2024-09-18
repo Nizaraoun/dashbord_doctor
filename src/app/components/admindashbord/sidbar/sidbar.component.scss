@@ -1,0 +1,118 @@
+/* Variables */
+$primary-color: #343a40;
+$secondary-color: #495057;
+$accent-color: #ffc107;
+$text-color: #ffffff;
+$search-bg-color: #f8f9fa;
+$search-text-color: #6c757d;
+$search-border-color: #ced4da;
+$badge-bg-color: #ffc107;
+$badge-text-color: #343a40;
+
+/* Sidebar Styles */
+.sidebar {
+  background-color: $primary-color;
+  color: $text-color;
+  height: 100%;
+  overflow-y: auto;
+  
+  /* Hide scrollbars but allow scrolling */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+// .sidebar::-webkit-scrollbar {
+//   display: none;  /* Safari and Chrome */
+// }
+
+.shadow-sm {
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+}
+
+.sidebar-profile {
+  .picture-wrapper {
+    .user-picture {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  .profile-details {
+    .name {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .role {
+      font-size: 0.875rem;
+      color: $accent-color;
+    }
+  }
+}
+
+.sidebar-menu {
+  .menu-header {
+    font-size: 0.875rem;
+    font-weight: bold;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    color: $accent-color;
+  }
+
+  .menu-items {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      a {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1.5rem;
+        color: $text-color;
+        text-decoration: none;
+
+        &:hover,
+        &.active {
+          background-color: $secondary-color;
+        }
+
+        i {
+          margin-right: 1rem;
+        }
+
+        .badge {
+          margin-left: auto;
+          background-color: $badge-bg-color;
+          color: $badge-text-color;
+        }
+      }
+
+      .iq-submenu {
+        display: none;
+        padding-left: 2rem;
+
+        &.open {
+          display: block;
+        }
+
+        li {
+          a {
+            padding: 0.5rem 0;
+            color: $text-color;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -31,4 +31,11 @@ Post$ = this.PostSubject.asObservable();
     // Make a GET request to the server
     return this.http.get<Feed[]>(url,  { headers: headers ,  });
   }
+  AddPost(post: Feed, token: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+    });
+    const url = `http://localhost:8080/api/add-post`;
+    return this.http.post(url, post, { headers: headers, responseType: 'text' as 'json' });
+  }
 }

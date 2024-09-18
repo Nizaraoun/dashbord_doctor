@@ -4,7 +4,7 @@ import { SidenavComponent } from "../../../components/sidenav/sidenav.component"
 import { SocketService } from "src/app/services/socket.service";
 import { NavbarComponent } from "../../navbar/navbar.component";
 import { PatientService } from "src/app/services/patient.service";
-import{accessToken} from '../../constants/socketUrl';
+import{accessToken, imgDoctorurl, imgUserurl} from '../../constants/socketUrl';
 import {filterOptions} from '../../constants/specialty';
 import { appointmentDTO} from '../../../interfaces/appointmentDTO';
 import { CommonModule } from "@angular/common";
@@ -16,6 +16,7 @@ import { A } from "@fullcalendar/core/internal-common";
 import { AppointmentService } from "src/app/services/appointment.service";
 import { Router, RouterLink } from "@angular/router";
 import { Component, OnInit, inject } from "@angular/core";
+import { Chart } from 'chart.js';
 
 @Component({
     selector: "hospital-home",
@@ -47,6 +48,7 @@ specilaityOptions = filterOptions;
   Rating: number = 0;
   followers: number = 0;
     imageprofile: string = '';
+    patientcount: number = 0;
 
   constructor(
     private patient: PatientService,
@@ -67,8 +69,8 @@ specilaityOptions = filterOptions;
     this.Token = localStorage.getItem('accessToken') || '';
     this.Username = localStorage.getItem('username') || '';
     this.Rating = Number(localStorage.getItem('rating')) || 0;
-    this.imageprofile = 'data:image/png;base64,' + atob(localStorage.getItem('image') || '');
-
+    this.imageprofile =imgDoctorurl+ localStorage.getItem('image') || '';
+    this.patientcount = Number(localStorage.getItem('patientcount')) || 0;
     this.followers = Number(localStorage.getItem('followers')) || 0;
 
     // Assuming appointmentDTO is of type AppointmentDTO[]
@@ -81,7 +83,7 @@ specilaityOptions = filterOptions;
 
   this.FeedService.GetPub(this.Token).subscribe((data: Feed[]) => {
     for (let i = 0; i < data.length; i++) {
-      data[i].senderImg = 'data:image/png;base64,' +data[i].senderImg;
+      data[i].senderImg = imgUserurl+data[i].senderImg;
 
       if (data[i].senderName === null) {
         data[i].senderName = "Membre anonyme";
@@ -92,6 +94,7 @@ specilaityOptions = filterOptions;
   }     
   
    this.feed = data; 
+   this.feed = this.feed.reverse(); 
    this.FeedService.setPost(data); // Set posts in the service
 
 
@@ -109,7 +112,7 @@ specilaityOptions = filterOptions;
 findDoctorBySpecialty(specialty: string ) {
   this.doctorservice.findDoctorBySpecialty(this.Token, specialty ).subscribe((data: doctorDto[]) => {
     for (let i = 0; i < data.length; i++) {
-     data[i].image = 'data:image/png;base64,' + atob(data[i].image);
+     data[i].image = imgDoctorurl + data[i].image;
     }
     this.doctor = data;
   });

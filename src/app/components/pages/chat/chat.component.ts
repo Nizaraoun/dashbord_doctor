@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common'; // Import CommonModule
 import { MessageGroup } from 'src/app/interfaces/messagegroup';
 import { AblyService } from 'src/app/services/Ably.Service';
 import { Validators ,FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { imgDoctorurl, imgUserurl } from '../../constants/socketUrl';
 
 @Component({
   selector: 'hospital-chat',
@@ -74,7 +75,12 @@ export class ChatComponent implements OnInit {
           this. addMessage (splitString[0], splitString[1].trim())   ;      
           data[i].message = splitString[1].trim();
         }
-          data[i].image = 'data:image/png;base64,' + data[i].image;
+        if (data[i].image !="default.jpg") {
+          data[i].image = imgUserurl + data[i].image;
+        }
+        else {
+          data[i].image = 'assets/images/user/10.jpg';
+        }
       }
       this.Messages = data;
     });

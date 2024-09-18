@@ -490,7 +490,11 @@ a:hover {
 .sign-in-page {
   height: 100%;
 }
+.a{
+  text-decoration: none;
+  
 
+}
 .sign-in-detail {
   padding: 100px;
   height: 100vh;
@@ -4816,9 +4820,6 @@ Add User Page
   font-size: 13px;
 }
 
-a {
-  text-decoration: none;
-}
 
 .form-row>.col,
 .form-row>[class*=col-] {
